@@ -44,7 +44,7 @@
 <div class="container">
   <div class="row">
     <% if user_signed_in? %>
-      <div class="pull-right action-bar">
+      <div class="pull-left action-bar">
         <%= link_to 'Edit Service', edit_service_path(@service), class: 'btn btn-default' %>
       </div>
     <% end %>
