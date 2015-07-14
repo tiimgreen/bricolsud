@@ -9,7 +9,7 @@
 Setting.create(
   key: 'company_address_short',
   pretty_name: 'Short Company Address',
-  value: '123 The Road, England'
+  value: 'Le Perier, Echourgnac, France'
 )
 
 Setting.create(
@@ -21,19 +21,19 @@ Setting.create(
 Setting.create(
   key: 'company_name',
   pretty_name: 'Copmany Name',
-  value: 'ABC Company'
+  value: 'Bricolsud'
 )
 
 Setting.create(
   key: 'contact_email',
   pretty_name: 'Contact Email',
-  value: 'name@company.com'
+  value: 'd.suddick@sky.com'
 )
 
 Setting.create(
   key: 'company_tag_line',
   pretty_name: 'Tag Line',
-  value: 'Handyman / Electrician'
+  value: 'Anything for the House & Garden'
 )
 
 puts "Settings created".green
