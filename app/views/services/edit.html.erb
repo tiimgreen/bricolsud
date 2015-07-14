@@ -13,6 +13,7 @@
       <%= f.label :font_class, 'Font Class (don\'t touch)', class: 'col-sm-2 control-label' %>
       <div class="col-sm-10">
         <%= f.text_field :font_class, class: 'form-control' %>
+        <span class="help-block">Do not touch, let Tim change this.</span>
       </div>
     </div>
 
@@ -20,6 +21,7 @@
       <%= f.label :order, class: 'col-sm-2 control-label' %>
       <div class="col-sm-10">
         <%= f.text_field :order, class: 'form-control' %>
+        <span class="help-block">The order in which the services are displayed everywhere.</span>
       </div>
     </div>
 
@@ -27,6 +29,7 @@
       <%= f.label :short_info, class: 'col-sm-2 control-label' %>
       <div class="col-sm-10">
         <%= f.text_area :short_info, rows: 3, class: 'form-control' %>
+        <span class="help-block">Text that is shown when you hover over the service on the home page.</span>
       </div>
     </div>
 
