@@ -18,12 +18,13 @@ class QuestionsController < ApplicationController
   end
 
   def edit
-    @question = Question.find(params[:id])
+    @service = Service.find(params[:service_id])
+    @question = Question.find(params[:question_id])
   end
 
   def update
-    @service = Service.find(params[:id])
-    @question = Question.find(params[:id])
+    @service = Service.find(params[:service_id])
+    @question = Question.find(params[:question_id])
 
     if @question.update_attributes(question_params)
       flash[:success] = 'Question updated'
@@ -34,7 +35,16 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    @service = Serivce.find(params[:service_id])
+    @service = Service.find(params[:service_id])
+    @question = Question.find(params[:question_id])
+
+    if @question.destroy
+      flash[:success] = 'Question deleted'
+      redirect_to @service
+    else
+      flash[:warning] = 'Problem deleting question'
+      redirect_to request.referer
+    end
   end
 
   private

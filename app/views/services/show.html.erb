@@ -79,25 +79,50 @@
           </li>
           <!-- PRICING : end -->
 
-          <!-- GALLERY : begin -->
-          <li>
-            <h4 class="accordion-title"><i class="im im-photo"></i>Gallery of Realized Projects</h4>
-            <div class="accordion-content">
+          <% if @service.service_images.any? || user_signed_in? %>
+            <!-- GALLERY : begin -->
+            <li>
+              <h4 class="accordion-title"><i class="im im-photo"></i>Gallery of Realized Projects</h4>
+              <div class="accordion-content">
 
-              <div class="c-gallery m-4-per-row">
-                <ul>
-                  <li><a href="images/gallery-electricity-01.jpg" class="lightbox" title="Image caption"><img src="images/gallery-electricity-01.jpg" alt=""></a></li>
-                  <li><a href="images/gallery-electricity-02.jpg" class="lightbox" title="Image caption"><img src="images/gallery-electricity-02.jpg" alt=""></a></li>
-                  <li><a href="images/gallery-electricity-03.jpg" class="lightbox" title="Image caption"><img src="images/gallery-electricity-03.jpg" alt=""></a></li>
-                  <li><a href="images/gallery-electricity-04.jpg" class="lightbox" title="Image caption"><img src="images/gallery-electricity-04.jpg" alt=""></a></li>
-                  <li><a href="images/gallery-electricity-05.jpg" class="lightbox" title="Image caption"><img src="images/gallery-electricity-05.jpg" alt=""></a></li>
-                  <li><a href="images/gallery-electricity-06.jpg" class="lightbox" title="Image caption"><img src="images/gallery-electricity-06.jpg" alt=""></a></li>
-                </ul>
+                <div class="c-gallery m-4-per-row">
+                  <% if @service.service_images.any? %>
+                    <ul>
+                      <% @service.service_images.each do |image| %>
+                        <li>
+                          <%= link_to image.image.url, class: 'lightbox', title: image.alt_text do %>
+                            <%= image_tag image.image.url, alt: image.alt_text %>
+                          <% end %>
+
+                          <% if user_signed_in? %>
+                            <%= link_to delete_service_image_path(@service, image), class: 'text-danger', method: :delete, data: { confirm: 'Are you sure?' } do %>
+                              <i class="fa fa-times"></i>
+                              Delete
+                            <% end %>
+                          <% end %>
+                        </li>
+                      <% end %>
+                    </ul>
+                    <% if user_signed_in? %>
+                      <p class="center">
+                        <%= link_to new_service_image_path(@service), class: 'btn btn-default' do %>
+                          <i class="fa fa-plus"></i>
+                          Add Image
+                        <% end %>
+                      </p>
+                    <% end %>
+                  <% else %>
+                    <p class="center">
+                      There are no images for this service
+                      <%= link_to 'add one here.', new_service_image_path(@service) %>
+                    </p>
+                  <% end %>
+                </div>
+
               </div>
-
-            </div>
-          </li>
-          <!-- GALLERY : end -->
+            </li>
+            <!-- GALLERY : end -->
+          <% end %>
 
           <% if user_signed_in? || @service.questions.any? %>
             <!-- FAQ : begin -->

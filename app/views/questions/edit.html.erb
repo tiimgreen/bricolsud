@@ -1,5 +1,5 @@
 <div class="container settings-container">
-  <%= form_for @question, html: { class: 'form-horizontal' } do |f| %>
+  <%= form_for [@service, @question], html: { class: 'form-horizontal' } do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
 
     <div class="form-group">
@@ -18,7 +18,7 @@
 
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-        <%= f.submit 'Update', class: 'btn btn-bg bg-sea form-button' %>
+        <%= f.submit 'Update', class: 'btn btn-primary' %>
       </div>
     </div>
   <% end %>

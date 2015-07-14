@@ -33,12 +33,20 @@ Rails.application.routes.draw do
   match 'services/:id',    to: 'services#update', via: :patch
 
   # Service Questions
+  get 'services/:service_id/questions/:question_id',          to: 'questions#show',    as: :service_question
   get 'services/:id/questions',                               to: 'questions#index',   as: :questions
   get 'services/:id/questions/new',                           to: 'questions#new',     as: :new_question
   get 'services/:service_id/questions/:question_id/edit',     to: 'questions#edit',    as: :edit_question
   match 'services/:service_id/questions/:question_id',        to: 'questions#update',  via: :patch
   match 'services/:id/questions',                             to: 'questions#create',  as: :create_question, via: :post
   match 'services/:service_id/questions/:question_id/delete', to: 'questions#destroy', as: :delete_question, via: :delete
+
+  get 'services/:id/images',                            to: 'service_images#index',   as: :service_images
+  get 'services/:id/images/new',                        to: 'service_images#new',     as: :new_service_image
+  get 'services/:service_id/images/:image_id/edit',     to: 'service_images#edit',    as: :edit_service_image
+  match 'services/:service_id/images/:image_id',        to: 'service_images#update',  via: :patch
+  match 'services/:id/images',                          to: 'service_images#create',  as: :create_service_image, via: :post
+  match 'services/:service_id/images/:image_id/delete', to: 'service_images#destroy', as: :delete_service_image, via: :delete
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
