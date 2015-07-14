@@ -9,6 +9,7 @@ gem 'devise', '~> 3.5.1'
 gem 'toc'
 gem 'redcarpet', '~> 3.1.0'
 gem 'mail', '~> 2.6.3'
+gem 'paperclip', '~> 4.3'
 
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'

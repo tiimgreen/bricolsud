@@ -33,6 +33,10 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def destroy
+    @service = Serivce.find(params[:service_id])
+  end
+
   private
 
     def question_params

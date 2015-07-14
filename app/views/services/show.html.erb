@@ -111,6 +111,7 @@
                         <% if user_signed_in? %>
                           <div class="pull-right">
                             <%= link_to 'Edit', edit_question_path(@service, question), class: 'btn btn-default' %>
+                            <%= link_to 'Delete', delete_question_path(@service, question), class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
                           </div>
                         <% end %>
                         <%= question.question %>
