@@ -27,7 +27,6 @@
           <div class="page-title-breadcrumbs">
             <ul>
               <li><%= link_to 'Home', root_path %></li>
-              <li><%= link_to 'Services', services_path %></li>
               <li><%= @service.title %></li>
             </ul>
           </div>
@@ -46,7 +45,7 @@
   <div class="row">
     <% if user_signed_in? %>
       <div class="pull-right action-bar">
-        <%= link_to 'Edit Service', edit_service_path(@service), class: 'btn btn-danger' %>
+        <%= link_to 'Edit Service', edit_service_path(@service), class: 'btn btn-default' %>
       </div>
     <% end %>
 
