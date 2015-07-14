@@ -1,0 +1,8 @@
+<ul class="services-sidebar-list">
+    <% @services.each do |service| %>
+        <li class="<% if service_url(service) == request.original_url %>m-active<% end %>">
+            <i class="<%= service.font_class %>"></i>
+            <%= link_to service.title, service %>
+        </li>
+    <% end %>
+</ul>

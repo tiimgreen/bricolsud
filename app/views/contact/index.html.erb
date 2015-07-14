@@ -1,0 +1,180 @@
+<!-- PAGE TITLE : begin -->
+<div id="page-title" class="m-parallax">
+
+  <!-- PAGE TITLE TOP : begin -->
+  <div class="page-title-top">
+    <div class="page-title-top-inner">
+
+      <!-- PAGE TITLE TEXT : begin -->
+      <div class="page-title-text">
+        <div class="container">
+          <h1><%= edit_text(@page, 'page_title', 'Contact', p_tags: false) %></h1>
+        </div>
+      </div>
+      <!-- PAGE TITLE TEXT : end -->
+
+    </div>
+  </div>
+  <!-- PAGE TITLE TOP : end -->
+
+  <!-- PAGE TITLE BOTTOM : begin -->
+  <div class="page-title-bottom">
+    <div class="container">
+      <div class="page-title-bottom-inner">
+        <div class="page-title-bottom-inner2">
+
+          <!-- PAGE TITLE BREADCRUMBS : begin -->
+          <div class="page-title-breadcrumbs">
+            <ul>
+              <li><%= link_to 'Home', root_path %></li>
+              <li><%= edit_text(@page, 'page_title', 'Contact', p_tags: false) %></li>
+            </ul>
+          </div>
+          <!-- PAGE TITLE BREADCRUMBS : end -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- PAGE TITLE BOTTOM : end -->
+
+</div>
+<!-- PAGE TITLE : end -->
+
+<div class="container">
+
+  <!-- PAGE CONTENT : begin -->
+  <div id="page-content">
+
+    <div class="row">
+      <div class="col-md-4">
+
+        <!-- ICON BLOCK : begin -->
+        <div class="c-icon-block">
+          <i class="im im-compass"></i>
+          <h3><%= edit_text(@page, 'location_title', 'Location', render_markdown: false) %></h3>
+          <%= edit_text(@page, 'location_body', 'Le Perier<br>Echourgnac') %>
+        </div>
+        <!-- ICON BLOCK : end -->
+
+        <hr class="c-divider">
+
+        <!-- ICON BLOCK : begin -->
+        <div class="c-icon-block">
+          <i class="im im-compass"></i>
+          <h3><%= edit_text(@page, 'operating_area_title', 'Operating Area', render_markdown: false) %></h3>
+          <%= edit_text(@page, 'operating_area_body', 'I operate in <strong>and around</strong> the areas of:<br>
+            <strong>Chalias/Brossac</strong>, <strong>Riberac</strong>, and <strong>Montpon</strong>.') %>
+          </p>
+        </div>
+        <!-- ICON BLOCK : end -->
+
+        <hr class="c-divider">
+
+        <!-- ICON BLOCK : begin -->
+        <div class="c-icon-block">
+          <i class="im im-phone"></i>
+          <h3><%= edit_text(@page, 'free_quote_title', 'Free Quote', render_markdown: false) %></h3>
+          <%= edit_text(@page, 'free_quote_body', '0675 889731<br><a href="mailto:d.suddick@sky.com">d.suddick@sky.com</a>') %>
+          <p></p>
+        </div>
+        <!-- ICON BLOCK : end -->
+
+        <hr class="c-divider m-transparent hidden-lg hidden-md">
+
+      </div>
+      <div class="col-md-8">
+
+        <!-- GOOGLE MAP : begin -->
+        <!-- If you specify the "data-address" attribute, "data-latitude" and "data-longitude" are optional
+        <div class="c-gmap"
+          data-address="8833 Sunset Blvd, West Hollywood, CA 90069, USA"
+          data-latitude="34.0909191"
+          data-longitude="-118.38417279999999"
+          data-zoom="18"
+          data-maptype="SATELLITE"
+          data-enable-mousewheel="false">
+        </div>
+        GOOGLE MAP : end -->
+        <div id="map-canvas"></div>
+
+      </div>
+    </div>
+
+    <hr class="c-divider m-size-medium">
+
+    <h2><%= edit_text(@page, 'contact_form_title', 'Get More Info or __Request a Quote__') %></h2>
+
+    <!-- CONTACT FORM : begin -->
+    <%= form_for submit_contact_form_path, html: { class: 'default-form m-ajax-form', id: 'contact-form' } do %>
+      <input type="hidden" name="contact-form">
+
+      <!-- FORM VALIDATION ERROR MESSAGE : begin -->
+      <p class="c-alert-message m-warning m-validation-error" style="display: none;"><i class="ico fa fa-exclamation-circle"></i>Please fill in all required (*) fields.</p>
+      <!-- FORM VALIDATION ERROR MESSAGE : end -->
+
+      <!-- SENDING REQUEST ERROR MESSAGE : begin -->
+      <p class="c-alert-message m-warning m-request-error" style="display: none;"><i class="ico fa fa-exclamation-circle"></i>There was a connection problem. Try again later.</p>
+      <!-- SENDING REQUEST ERROR MESSAGE : end -->
+
+      <div class="row">
+        <div class="col-sm-4">
+
+          <!-- NAME FIELD : begin -->
+          <div class="form-field">
+            <label for="contact-name">Your Name <span>*</span></label>
+            <input id="contact-name" name="contact[name]" class="m-required">
+          </div>
+          <!-- NAME FIELD : end -->
+
+          <!-- EMAIL FIELD : begin -->
+          <div class="form-field">
+            <label for="contact-email">Your Email Address <span>*</span></label>
+            <input id="contact-email" name="contact[email]" class="m-required m-email">
+          </div>
+          <p style="display: none;">
+            <label for="contact-email-hp">Re Email Address</label>
+            <input id="contact-email-hp" name="contact-email-hp">
+          </p>
+          <!-- EMAIL FIELD : end -->
+
+          <!-- PHONE FIELD : begin -->
+          <div class="form-field">
+            <label for="contact-phone">Your Phone Number <span>*</span></label>
+            <input id="contact-phone" name="contact[phone]"class="m-required">
+          </div>
+          <!-- PHONE FIELD : end -->
+
+        </div>
+        <div class="col-sm-8">
+
+          <!-- SUBJECT FIELD : begin -->
+          <div class="form-field">
+            <label for="contact-subject">Message Subject</label>
+            <input id="contact-subject" name="contact[subject]">
+          </div>
+          <!-- SUBJECT FIELD : end -->
+
+          <!-- MESSAGE FIELD : begin -->
+          <div class="form-field">
+            <label for="contact-message">Message <span>*</span></label>
+            <textarea id="contact-message" name="contact[message]" class="m-required"></textarea>
+          </div>
+          <!-- MESSAGE FIELD : end -->
+
+          <!-- SUBMIT BUTTON : begin -->
+          <div class="form-field">
+            <%= submit_tag 'Send Message', class: 'submit-btn c-button' %>
+          </div>
+          <!-- SUBMIT BUTTON : end -->
+
+        </div>
+      </div>
+
+    <% end %>
+    <!-- CONTACT FORM : end -->
+
+  </div>
+  <!-- PAGE CONTENT : end -->
+
+</div>

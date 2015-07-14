@@ -1,0 +1,109 @@
+<% unless on_page('contact') %>
+<!-- FOOTER TOP : begin -->
+<div class="footer-top">
+  <div class="footer-top-inner">
+    <div class="container">
+
+      <!-- CTA MESSAGE : begin -->
+      <div class="c-cta-message m-has-button">
+        <div class="cta-inner">
+          <h2><strong><%= edit_text(@page, 'global_footer_top_title', 'Interested?') %></strong></h2>
+          <p><%= edit_text(@page, 'global_footer_top_body', 'Get in touch and I\'ll get back to you with a quote.') %></p>
+          <p class="cta-button">
+            <%= edit_link(@page, 'global_footer_get_in_touch', 'Get in Touch', '/contact', class: 'c-button m-size-medium') %>
+          </p>
+        </div>
+      </div>
+      <!-- CTA MESSAGE : end -->
+
+    </div>
+  </div>
+</div>
+<!-- FOOTER TOP : end -->
+<% end %>
+
+<!-- FOOTER INNER : begin -->
+<div class="footer-inner">
+  <div class="container">
+
+    <!-- BOTTOM PANEL : begin -->
+    <div id="bottom-panel">
+      <div class="row">
+        <div class="col-md-6">
+
+          <!-- TEXT WIDGET : begin -->
+          <div class="widget text-widget">
+            <div class="widget-inner">
+              <h3 class="widget-title"><%= edit_text(@page, 'global_footer_about_title', 'About <strong>Bricolsud</strong>') %></h3>
+              <div class="widget-content">
+
+                <p>
+                  <%= edit_text(@page, 'global_footer_about_body', '
+                  I can provide a wide range of services including, but not limited to,
+                  <strong><a href="/services/plumbing">Plumbing</a></strong>,
+                  <strong><a href="/services/heating">Heating</a></strong>,
+                  <strong><a href="/services/electrics">Electrical Work</a></strong>,
+                  <strong><a href="/services/roofing">Roofing</a></strong>,
+                  <strong><a href="/services/painting">Painting</a></strong>, and
+                  <strong><a href="/services/renovation">Renovation</a></strong>.
+                </p>
+
+                <p>If there are any other handy-man jobs you need doing around the house,
+                <a href="/contact">get in touch</a> and I\'ll let you know ASAP if I am available.</p>
+                ') %>
+
+              </div>
+            </div>
+          </div>
+          <!-- TEXT WIDGET : end -->
+
+          <hr class="c-divider hidden-lg hidden-md">
+
+        </div>
+        <div class="col-md-6">
+
+          <!-- TEXT WIDGET (CONTACT) : begin -->
+          <div class="widget text-widget">
+            <div class="widget-inner">
+              <h3 class="widget-title"><%= edit_text(@page, 'global_footer_contact_title', 'Quick <strong>Contact</strong>') %></h3>
+              <div class="widget-content">
+                <p><%= edit_text(@page, 'global_footer_contact_body', 'Please call <strong>0675 889731</strong> or write at <strong><a href="mailto:d.suddick@sky.com">d.suddick@sky.com</a></strong>.<br><br><strong>Le Perier</strong><br>Echourgnac<br>France') %></p>
+              </div>
+            </div>
+          </div>
+          <!-- TEXT WIDGET (CONTACT) : end -->
+
+          <hr class="c-divider hidden-lg hidden-md">
+
+        </div>
+      </div>
+    </div>
+    <!-- BOTTOM PANEL : end -->
+
+    <div class="row">
+      <div class="col-md-6 col-md-push-6">
+
+        <!-- FOOTER MENU : begin -->
+        <nav class="footer-menu">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </nav>
+        <!-- FOOTER MENU : end -->
+
+      </div>
+      <div class="col-md-6 col-md-pull-6">
+
+        <!-- FOOTER TEXT : begin -->
+        <div class="footer-text">
+          <%= edit_text(@page, 'global_footer_copyright', 'Copyright 2015 &copy; Bricolsud') %>
+        </div>
+        <!-- FOOTER TEXT : end -->
+
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- FOOTER INNER : end -->

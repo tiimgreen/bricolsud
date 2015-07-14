@@ -1,0 +1,631 @@
+﻿/* -----------------------------------------------------------------------------
+
+	TABLE OF CONTENTS
+
+	1.) General
+	2.) Components
+	3.) Header
+	4.) Core
+	5.) Sidebar
+	6.) Footer
+	7.) Responsive
+
+----------------------------------------------------------------------------- */
+
+/* -----------------------------------------------------------------------------
+
+    1.) GENERAL
+
+----------------------------------------------------------------------------- */
+
+	/* -------------------------------------------------------------------------
+		COLORS
+	-------------------------------------------------------------------------- */
+
+	// MAIN PALETTE
+	$accent-1: #ff4850; // primary accent color
+	$accent-2: #00796B; // secondary accent color
+	$accent-3: #119f4a; // used as a gradient color over $accent-2
+	$x-soft-gray: #f9f9f9; // very soft backgrounds
+	$soft-gray: #f1f1f1; // dividers
+	$medium-gray: #e2e2e2; // soft background
+	$dark-gray: #444; // titles, strong text
+	$x-dark-gray: #1a1a1a; // titles, strong text on bright bg
+
+	// GENERAL
+	$body-bg: #FFF;
+	$body-font: #696969;
+	$link: $accent-1;
+
+	// HEADER
+	$header-bg: #FFF;
+	$header-font: #333;
+
+	// PAGE TITLE
+	$page-title-bg-image: '../../../images/header-bg.jpg';
+	$page-title-font: #FFF;
+
+	// FOOTER
+	$footer-bg-image: '../../../images/footer-bg.jpg';
+	$footer-bg: #000;
+	$footer-font: #FFF;
+	$footer-top-font: #FFF;
+
+	/* -------------------------------------------------------------------------
+		MIXINS
+	-------------------------------------------------------------------------- */
+
+	// BOX SHADOW
+	@mixin box-shadow ( $shadow1, $shadow2:false ) {
+		$params: $shadow1;
+		@if $shadow2 { $params: $shadow1, $shadow2; }
+		-moz-box-shadow: $params;
+		-webkit-box-shadow: $params;
+		box-shadow: $params;
+	}
+
+	// HORIZONTAL GRADIENT
+	@mixin horizontal-gradient( $from, $to ) {
+		background-image: -webkit-gradient( linear, left top, right top, from( $from ), to( $to ) );
+		background-image: -webkit-linear-gradient( left, $from, $to );
+		background-image:    -moz-linear-gradient( left, $from, $to );
+		background-image:      -o-linear-gradient( left, $from, $to );
+		background-image:         linear-gradient( to right, $from, $to );
+	}
+
+	// INPUT PLACEHOLDER
+	@mixin input-placeholder ( $color ) {
+		&::-webkit-input-placeholder { color: $color; }
+		&:-moz-placeholder { color: $color; }
+		&::-moz-placeholder { color: $color; }
+		&:-ms-input-placeholder { color: $color; }
+	}
+
+	// VERTICAL GRADIENT
+	@mixin vertical-gradient( $from, $to ) {
+		background-image: -webkit-gradient( linear, left top, left bottom, from( $from ), to( $to ) );
+		background-image: -webkit-linear-gradient( top, $from, $to );
+		background-image:    -moz-linear-gradient( top, $from, $to );
+		background-image:      -o-linear-gradient( top, $from, $to );
+		background-image:         linear-gradient( to bottom, $from, $to );
+	}
+	@mixin vertical-gradient-from-bottom( $from, $to ) {
+		background-image: -webkit-gradient( linear, left bottom, left top, from( $from ), to( $to ) );
+		background-image: -webkit-linear-gradient( bottom, $from, $to );
+		background-image:    -moz-linear-gradient( bottom, $from, $to );
+		background-image:      -o-linear-gradient( bottom, $from, $to );
+		background-image:         linear-gradient( to top, $from, $to );
+	}
+
+	/* -------------------------------------------------------------------------
+		DEFAULTS
+	------------------------------------------------------------------------- */
+
+	body { color: $body-font; background-color: $body-bg; }
+	a, a:hover, a:active, a:focus { color: $body-font; border-color: $accent-1; }
+	a:hover { border-color: lighten( $accent-1, 20% ); }
+
+	/* -------------------------------------------------------------------------
+        VARIOUS CONTENT / TYPOGRAPHY
+	------------------------------------------------------------------------- */
+
+	h1, h2, h3, h4, h5 { color: $dark-gray; }
+	h1 a, h2 a, h3 a, h4 a, h5 a { color: $dark-gray; }
+	h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover { color: $dark-gray; }
+	h1:after,
+	h2:after { background-color: $accent-1; }
+
+	// DEFINITION LIST
+	dl > dt { color: $dark-gray; }
+
+	// UNORDERED LIST
+	ul > li:before { background-color: $dark-gray; }
+	ul ul > li:before { background-color: $medium-gray; }
+
+	// TABLE
+	table th { color: #FFF; background-color: $accent-1; }
+	table tbody > tr:nth-child(even) { background-color: $soft-gray; }
+
+
+	/* -------------------------------------------------------------------------
+		FORMS
+	------------------------------------------------------------------------- */
+
+	.default-form {
+
+		label { color: $dark-gray; }
+		label > span { color: $accent-1; }
+		input, textarea, select, .selectbox-input .toggle { color: $body-font; background-color: $soft-gray; }
+		input.m-type-2, textarea.m-type-2, select.m-type-2 { border-color: $soft-gray; background-color: transparent; }
+		input.m-error, textarea.m-error, select.m-error { @include box-shadow( inset 0 0 0 3px #ffdfe0 ); }
+
+		// CHECKBOX & RADIO INPUTS
+		.checkbox-input, .radio-input {
+			label { color: $body-font; }
+			label:before { color: $medium-gray; }
+			&.m-checked label:before { color: $accent-1; }
+		}
+
+		// SELECTBOX INPUT
+		.selectbox-input {
+			.toggle:after { color: $accent-1; }
+			.fake-selectbox { background-color: $soft-gray; }
+			.fake-selectbox > li:hover { color: #FFF; background-color: $accent-1; }
+		}
+
+	}
+
+
+/* -----------------------------------------------------------------------------
+
+    2.) COMPONENTS
+
+----------------------------------------------------------------------------- */
+
+	/* -------------------------------------------------------------------------
+		ACCORDION
+	------------------------------------------------------------------------- */
+
+	.c-accordion {
+		> li { border-color: $medium-gray; }
+		.accordion-title { color: $dark-gray; }
+		.accordion-title:after { color: $accent-1; }
+		.m-active .accordion-title { background-color: $x-soft-gray; }
+		.accordion-title > i:first-child { color: $accent-1; }
+		.accordion-content { border-color: $medium-gray; }
+	}
+
+	/* -------------------------------------------------------------------------
+		ALERT MESSAGES
+	------------------------------------------------------------------------- */
+
+	.c-alert-message.m-warning { color: #d40041; background-color: #ffdfe0; }
+	.c-alert-message.m-success { color: #499143; background-color: #d4fbd3; }
+	.c-alert-message.m-info { color: #265e88; background-color: #e1edf9; }
+	.c-alert-message.m-notification { color: #c88435; background-color: #fff4cf; }
+
+	/* -------------------------------------------------------------------------
+		ARTICLE
+	------------------------------------------------------------------------- */
+
+	.c-article {
+
+		// ARTICLE IMAGE
+		&.m-post-type-video .article-image:before { color: #000; }
+
+		// ARTICLE CONTENT
+		.article-title a { border-color: transparent; }
+		.article-title a:hover { border-color: $dark-gray; }
+		.article-content { background-color: $soft-gray; }
+		.article-content blockquote p { color: $dark-gray; }
+
+		// ARTICLE FOOTER
+		.article-footer { background-color: $x-soft-gray; border-top: 1px solid $soft-gray; }
+		.article-footer a { border-color: transparent; }
+		.article-footer a:hover { border-color: $body-font; }
+
+	}
+	.c-article.m-cropped {
+		.content-inner:after { @include vertical-gradient-from-bottom( $soft-gray, rgba( $soft-gray, 0 ) ); }
+	}
+
+	/* -------------------------------------------------------------------------
+		BUTTONS
+	------------------------------------------------------------------------- */
+
+	.c-button { color: $accent-1; border-color: $accent-1;
+
+		&:hover:not( .m-disabled ) { color: $accent-1; border-color: lighten( $accent-1, 10% ); }
+		&:active:not( .m-disabled ) { color: $accent-1; border-color: lighten( $accent-1, 20% ); }
+
+		&.m-color-2 { color: $accent-2; border-color: $accent-2; }
+		&.m-color-2:hover:not( .m-disabled ) { color: $accent-2; border-color: lighten( $accent-2, 10% ); }
+		&.m-color-2:active:not( .m-disabled ) { color: $accent-2; border-color: lighten( $accent-2, 20% ); }
+		&.m-color-3 { color: $dark-gray; border-color: $dark-gray; }
+		&.m-color-3:hover:not( .m-disabled ) { color: $dark-gray; border-color: lighten( $dark-gray, 10% ); }
+		&.m-color-3:active:not( .m-disabled ) { color: $dark-gray; border-color: lighten( $dark-gray, 20% );}
+
+		// TYPE 2
+		&.m-type-2 { color: #FFF; background-color: $accent-1; }
+		&.m-type-2:hover { color: #FFF; background-color: lighten( $accent-1, 10% ); }
+		&.m-type-2:active { color: #FFF; background-color: lighten( $accent-1, 20% ); }
+		&.m-type-2.m-color-2 { color: #FFF; border-color: $accent-2; background-color: $accent-2; }
+		&.m-type-2.m-color-2:hover { color: #FFF; background-color: lighten( $accent-2, 10% ); }
+		&.m-type-2.m-color-2:active { color: #FFF; background-color: lighten( $accent-2, 20% ); }
+		&.m-type-2.m-color-3 { color: #FFF; border-color: $dark-gray; background-color: $dark-gray; }
+		&.m-type-2.m-color-3:hover { color: #FFF; background-color: lighten( $dark-gray, 10% ); }
+		&.m-type-2.m-color-3:active { color: #FFF; background-color: lighten( $dark-gray, 20% ); }
+
+	}
+
+	/* -------------------------------------------------------------------------
+		CAROUSEL
+	------------------------------------------------------------------------- */
+
+	.c-carousel {
+
+		// ARROW NAVIGATION
+		.owl-nav { color: $accent-1; }
+		.owl-nav .m-disabled { color: $medium-gray; }
+
+		// DOTS NAVIGATION
+		.owl-dot > span { background-color: $medium-gray; }
+		.owl-dot.active > span { background-color: $accent-1; }
+
+	}
+
+	/* -------------------------------------------------------------------------
+		COUNTER
+	------------------------------------------------------------------------- */
+
+	.c-counter .counter-data { color: $accent-1; }
+
+	/* -------------------------------------------------------------------------
+		DIVIDER
+	------------------------------------------------------------------------- */
+
+	.c-divider,
+	.c-divider.m-type-2 { border-color: $medium-gray; }
+	.c-divider.m-transparent { border-color: transparent; }
+
+	/* -------------------------------------------------------------------------
+		FEATURE
+	------------------------------------------------------------------------- */
+
+	.c-feature .feature-icon { color: $accent-1; }
+
+	/* -------------------------------------------------------------------------
+		ICON BLOCK
+	------------------------------------------------------------------------- */
+
+	.c-icon-block {
+		> i:first-child { color: $accent-1; }
+		h3 { color: $dark-gray; }
+	}
+
+	/* -------------------------------------------------------------------------
+		PAGINATION
+	------------------------------------------------------------------------- */
+
+	.c-pagination {
+		.c-button { border-color: $soft-gray; }
+		.c-button:hover { border-color: $accent-1; }
+		.m-active .c-button { color: #FFF; border-color: $accent-1; background-color: $accent-1; }
+	}
+
+	/* -------------------------------------------------------------------------
+		PARALLAX SECTION
+	------------------------------------------------------------------------- */
+
+	.c-parallax-section { border-color: $body-bg; background-color: $dark-gray;
+		.section-inner { color: #FFF; }
+		&.m-has-overlay .section-inner { background-color: $accent-2; background-color: rgba( $accent-2, .95 ); }
+		&.m-has-overlay .section-inner:before { @include vertical-gradient( transparent, rgba( $accent-3, .6 ) ); }
+		h1, h2, h3, h4, h5, h6 { color: #FFF; }
+		.c-button { color: #FFF; }
+		.c-divider:not( m-transparent ) { border-color: rgba( #FFF, .2 ); }
+		.c-testimonial blockquote:before { color: #FFF; }
+	}
+
+	/* -------------------------------------------------------------------------
+		PRICING TABLE
+	------------------------------------------------------------------------- */
+
+	.c-pricing-table {
+		.table-title { color: #FFF; background-color: $accent-1; }
+		.table-content { border-color: $medium-gray; }
+		.table-price { color: $accent-1; border-color: $medium-gray; }
+		.table-price > span { color: $dark-gray; }
+		.table-content ul > li { border-color: $x-soft-gray; }
+	}
+
+	/* -------------------------------------------------------------------------
+		PROGRESS BAR
+	------------------------------------------------------------------------- */
+
+	.c-progress-bar { background-color: $soft-gray; }
+	.c-progress-bar > span { background-color: $accent-1; }
+	.c-progress-bar.m-color-2 > span { background-color: $accent-2; }
+	.c-progress-bar.m-color-3 > span { background-color: $dark-gray; }
+
+	/* -------------------------------------------------------------------------
+		SEARCH FORM
+	------------------------------------------------------------------------- */
+
+	.c-search-form {
+		.form-fields { border-color: $medium-gray; }
+		input { color: $dark-gray; }
+		button { color: $accent-1; }
+	}
+
+	/* -------------------------------------------------------------------------
+		SERVICE
+	------------------------------------------------------------------------- */
+
+	.c-service {
+		.service-title { background-color: $dark-gray; }
+		.service-icon { color: $accent-1; }
+		.service-title,
+		.service-title a { color: #FFF; border-color: transparent; }
+		.service-title a:hover { border-color: #FFF; }
+		.service-description { color: $body-font; }
+		.service-description > div { border-color: $medium-gray; }
+		.service-description .c-button { color: $accent-1; border-color: $accent-1; }
+		.service-description .c-button:hover { border-color: lighten( $accent-1, 10% ); }
+		.service-description .c-button:active { border-color: lighten( $accent-1, 20% ); }
+	}
+
+	// TYPE 2
+	.c-service.m-type-2 {
+		.service-description { color: #FFF; background-color: $accent-1; background-color: rgba( $accent-1, .95 ); }
+		.service-description .c-button { color: #FFF; border-color: #FFF; }
+		.service-description .c-button:hover { border-color: rgba( #FFF, .5 ); }
+		.service-description .c-button:active { border-color: rgba( #FFF, .3 ); }
+	}
+
+	/* -------------------------------------------------------------------------
+		SLIDER
+	------------------------------------------------------------------------- */
+
+	.c-slider {
+
+		.slide { color: #FFF; }
+		h1, h2, h3, h4 { color: #FFF; }
+		.c-button { color: #FFF; border-color: #FFF;
+			&:hover:not( .m-disabled ) { border-color: rgba( #FFF, .5 ); }
+			&:active:not( .m-disabled ) { border-color: rgba( #FFF, .3 ); }
+			&.m-type-2 { color: $dark-gray; border-color: #FFF; background-color: #FFF; }
+			&.m-type-2:hover:not( .m-disabled ) { color: #FFF; background-color: transparent; }
+			&.m-type-2:active:not( .m-disabled ) { color: #FFF; background-color: transparent; }
+		}
+		h1 a, h2 a { color: #FFF; }
+		h1 a:hover, h2 a:hover { border-color: #FFF; }
+		h1 strong, h2 strong { color: $accent-1; }
+
+		// ARROW NAVIGATION
+		.owl-prev,
+		.owl-next { color: #FFF; }
+
+		// SLIDER INDICATOR
+		.slider-indicator { background-color: #FFF; background-color: rgba( #FFF, .2 ); }
+		.slider-indicator > span { background-color: $accent-1; }
+
+	}
+
+	/* -------------------------------------------------------------------------
+		TABS
+	------------------------------------------------------------------------- */
+
+	.c-tabs { border-color: $medium-gray;
+		.tab-list > li { color: $dark-gray; border-color: $medium-gray; background-color: transparent; }
+		.tab-list > li.m-active { background-color: $soft-gray; }
+	}
+
+	/* -------------------------------------------------------------------------
+		TEAM MEMBER
+	------------------------------------------------------------------------- */
+
+	.c-team-member {
+		.member-name { color: $dark-gray; }
+		.member-role { color: $body-font; }
+		.member-social > li > a { color: $accent-1; }
+		.member-social > li > a:hover { color: lighten( $accent-1, 10% ); }
+		.member-social > li > a:active { color: lighten( $accent-1, 20% ); }
+	}
+
+	/* -------------------------------------------------------------------------
+		TESTIMONIAL
+	------------------------------------------------------------------------- */
+
+	.c-testimonial blockquote:before { color: $accent-1; }
+
+
+/* -----------------------------------------------------------------------------
+
+    3.) HEADER
+
+----------------------------------------------------------------------------- */
+
+#header { color: $header-font; background-color: $header-bg; border-color: $soft-gray; }
+
+    /* -------------------------------------------------------------------------
+        HEADER NAVIGATION
+    ------------------------------------------------------------------------- */
+
+	// HEADER MENU
+	.header-menu {
+
+		> ul > li > a { color: $header-font; }
+		> ul > li.m-hover > a,
+		> ul > li > a:hover { color: $accent-1; }
+		> ul > li.m-active > a:before { background-color: $accent-1; }
+		.submenu-toggle { color: $accent-1; }
+
+			// submenu
+			ul > li > ul { background-color: $header-bg; @include box-shadow( 1px 1px 1px rgba( 0, 0, 0, .1 ) ); }
+			ul > li > ul > li > a { color: $header-font; }
+			ul > li > ul > li.m-hover > a,
+			ul > li > ul > li > a:hover { color: $header-bg; background-color: $accent-1; }
+
+	}
+
+	// HEADER SEARCH
+	.header-search {
+		&:before { background-color: $header-font; }
+		> form { background-color: $header-bg; @include box-shadow( 1px 1px 1px rgba( 0, 0, 0, .1 ) ); }
+		.search-submit { color: $accent-1; }
+		.search-toggle { color: $accent-1; }
+	}
+
+	// HEADER NAVIGATION TOGGLE
+	.header-navigation-toggle { color: $accent-1; border-color: $accent-1; }
+	.header-navigation-toggle.m-active { color: #FFF; background-color: $accent-1; }
+
+
+/* -----------------------------------------------------------------------------
+
+	4.) CORE
+
+----------------------------------------------------------------------------- */
+
+    /* -------------------------------------------------------------------------
+        PAGE TITLE
+    ------------------------------------------------------------------------- */
+
+	// PAGE TITLE TOP
+	.page-title-top { color: $page-title-font; background-color: $accent-2; background-image: url( $page-title-bg-image ); }
+	.page-title-top-inner { background-color: $accent-2; background-color: rgba( $accent-2, .9 ); }
+	.page-title-top-inner:before { @include vertical-gradient( transparent, rgba( $accent-3, .6 ) ); }
+
+		// page title text
+		.page-title-text h1 { color: $page-title-font; }
+
+	// PAGE TITLE BOTTOM
+	.page-title-bottom-inner { color: $dark-gray; background-color: $body-bg; }
+	.page-title-bottom-inner:before { @include horizontal-gradient( rgba( 255, 255, 255, 0 ), rgba( 0, 0, 0, .15 ) ); }
+	.page-title-bottom-inner:after { @include horizontal-gradient( rgba( 0, 0, 0, .15 ), rgba( 255, 255, 255, 0 ) ); }
+	.page-title-bottom-inner2:before,
+	.page-title-bottom-inner2:after { @include vertical-gradient( rgba( 255, 255, 255, 0 ), $body-bg ); z-index: 10; }
+
+		// page title breadcrumbs
+		.page-title-breadcrumbs { color: $body-font; background-color: $x-soft-gray; border-color: $soft-gray; }
+		.page-title-breadcrumbs ul > li:before { color: $accent-1; }
+		.page-title-breadcrumbs a { color: $body-font; border-color: transparent; }
+		.page-title-breadcrumbs a:hover { border-color: $body-font; }
+
+		// page title bar
+		.page-title-bar-inner { border-color: $medium-gray; }
+		.page-title-bar-left > li > i:first-child { color: $accent-1;  }
+		.page-title-bar-left a { color: $dark-gray; }
+		.page-title-bar-left .social a { color: $accent-1; }
+
+    /* -------------------------------------------------------------------------
+        BLOG DETAIL PAGE
+    ------------------------------------------------------------------------- */
+
+	.blog-detail-page article .article-title { border-color: $medium-gray; }
+
+    /* -------------------------------------------------------------------------
+        SEARCH RESULTS PAGE
+    ------------------------------------------------------------------------- */
+
+	.search-results-page .search-query { color: $accent-1; }
+
+
+/* -----------------------------------------------------------------------------
+
+    5.) SIDEBAR
+
+----------------------------------------------------------------------------- */
+
+#sidebar {
+
+	.widget-title { border-color: $medium-gray; }
+
+    /* -------------------------------------------------------------------------
+        LINKS WIDGET
+    ------------------------------------------------------------------------- */
+
+	.links-widget {
+		ul > li > a { color: $dark-gray; border-color: transparent; }
+		ul > li > a:hover { border-color: $dark-gray; }
+		ul > li.m-active { color: #FFF; background-color: $accent-1; }
+		ul > li.m-active a { color: #FFF; }
+		ul > li.m-active a:hover { border-color: #FFF; }
+	}
+
+    /* -------------------------------------------------------------------------
+        SERVICES WIDGET
+    ------------------------------------------------------------------------- */
+
+	.services-widget {
+		ul > li > a { color: $dark-gray; border-color: transparent; }
+		ul > li > a:hover { border-color: $dark-gray; }
+		ul > li.m-active { color: #FFF; background-color: $accent-1; }
+		ul > li.m-active a { color: #FFF; }
+		ul > li.m-active a:hover { border-color: #FFF; }
+	}
+
+}
+
+
+/* -----------------------------------------------------------------------------
+
+    6.) FOOTER
+
+----------------------------------------------------------------------------- */
+
+#footer { color: $footer-font; background-color: $footer-bg; background-image: url( $footer-bg-image ); }
+
+    /* -------------------------------------------------------------------------
+        FOOTER TOP
+    ------------------------------------------------------------------------- */
+
+	.footer-top { background-color: $accent-2; background-color: rgba( $accent-2, .95 ); }
+	.footer-top:before { @include vertical-gradient( transparent, rgba( $accent-3, .4 ) ); }
+	.footer-top {
+		h2, h3, h4, h5, h5 { color: $footer-top-font; }
+	}
+
+	// FOOTER CTA
+	.c-cta-message .cta-button .c-button { color: $footer-top-font; border-color: #FFF; }
+
+    /* -------------------------------------------------------------------------
+        FOOTER INNER
+    ------------------------------------------------------------------------- */
+
+	.footer-inner { background-color: $footer-bg; background-color: rgba( $footer-bg, .95 ); }
+	.footer-inner a { color: $footer-font; }
+
+	// BOTTOM PANEL
+	#bottom-panel { border-color: $footer-font; border-color: rgba( #FFF, .1 );
+
+		.c-divider { border-color: rgba( #FFF, .1 ); }
+
+		// widgets
+		.widget-title { color: $footer-font; }
+		.widget-title:after { background-color: $accent-1; }
+
+			// subscribe widget
+			.subscribe-widget {
+				.c-alert-message { color: $footer-font; border-color: $footer-font; background: transparent; }
+				.input-box { border-color: $footer-font; border-color: rgba( $footer-font, .3 ); }
+				.email-input { color: $footer-font; }
+				.submit-btn { color: $accent-1; }
+			}
+
+	}
+
+
+/* -----------------------------------------------------------------------------
+
+    7.) RESPONSIVE
+
+----------------------------------------------------------------------------- */
+
+    /* -------------------------------------------------------------------------
+        LARGE DEVICES
+    ------------------------------------------------------------------------- */
+
+    @media ( max-width: 1199px ) {
+
+		// HEADER
+		.header-navigation .navigation-inner { border-color: $medium-gray; }
+
+			// header menu
+			.header-menu {
+
+				> ul > li { border-color: $soft-gray; }
+				> ul > li.m-active > a { color: $accent-1; }
+
+				// submenu
+				> ul > li > ul { @include box-shadow( none ); }
+				ul > li > ul > li > a:hover { color: $accent-1; background-color: transparent; }
+				ul > li > ul > li > ul { @include box-shadow( none ); }
+
+			}
+
+			// header search
+			.header-search > form { @include box-shadow( none ); background-color: $soft-gray; }
+
+	}

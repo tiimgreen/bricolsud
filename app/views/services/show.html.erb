@@ -1,0 +1,170 @@
+<!-- PAGE TITLE : begin -->
+<div id="page-title" class="m-parallax">
+
+  <!-- PAGE TITLE TOP : begin -->
+  <div class="page-title-top">
+    <div class="page-title-top-inner">
+
+      <!-- PAGE TITLE TEXT : begin -->
+      <div class="page-title-text">
+        <div class="container">
+          <h1><%= @service.title %></h1>
+        </div>
+      </div>
+      <!-- PAGE TITLE TEXT : end -->
+
+    </div>
+  </div>
+  <!-- PAGE TITLE TOP : end -->
+
+  <!-- PAGE TITLE BOTTOM : begin -->
+  <div class="page-title-bottom">
+    <div class="container">
+      <div class="page-title-bottom-inner">
+        <div class="page-title-bottom-inner2">
+
+          <!-- PAGE TITLE BREADCRUMBS : begin -->
+          <div class="page-title-breadcrumbs">
+            <ul>
+              <li><%= link_to 'Home', root_path %></li>
+              <li><%= link_to 'Services', services_path %></li>
+              <li><%= @service.title %></li>
+            </ul>
+          </div>
+          <!-- PAGE TITLE BREADCRUMBS : end -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- PAGE TITLE BOTTOM : end -->
+
+</div>
+<!-- PAGE TITLE : end -->
+
+<div class="container">
+  <div class="row">
+    <% if user_signed_in? %>
+      <div class="pull-right action-bar">
+        <%= link_to 'Edit Service', edit_service_path(@service), class: 'btn btn-danger' %>
+      </div>
+    <% end %>
+
+    <div class="col-md-9 col-md-push-3">
+
+      <!-- PAGE CONTENT : begin -->
+      <div id="page-content">
+
+        <h2><%= @service.title %></h2>
+
+        <div class="row">
+          <div class="col-md-12">
+            <%= @markdown.render(@service.body).html_safe %>
+          </div>
+        </div>
+
+        <hr class="c-divider m-size-small m-transparent">
+
+        <!-- ACCORDION : begin -->
+        <ul class="c-accordion">
+
+          <!-- PRICING : begin -->
+          <li>
+            <h4 class="accordion-title"><i class="im im-cash"></i>Pricing</h4>
+            <div class="accordion-content">
+              <p class="center">
+                <%= edit_text(@page, "service_#{@service.id}_pricing", 'I prefer to quote jobs individually, to get a free, no obligation, quote [get in touch](/contact).', p_tags: false) %>
+              </p>
+            </div>
+          </li>
+          <!-- PRICING : end -->
+
+          <!-- GALLERY : begin -->
+          <li>
+            <h4 class="accordion-title"><i class="im im-photo"></i>Gallery of Realized Projects</h4>
+            <div class="accordion-content">
+
+              <div class="c-gallery m-4-per-row">
+                <ul>
+                  <li><a href="images/gallery-electricity-01.jpg" class="lightbox" title="Image caption"><img src="images/gallery-electricity-01.jpg" alt=""></a></li>
+                  <li><a href="images/gallery-electricity-02.jpg" class="lightbox" title="Image caption"><img src="images/gallery-electricity-02.jpg" alt=""></a></li>
+                  <li><a href="images/gallery-electricity-03.jpg" class="lightbox" title="Image caption"><img src="images/gallery-electricity-03.jpg" alt=""></a></li>
+                  <li><a href="images/gallery-electricity-04.jpg" class="lightbox" title="Image caption"><img src="images/gallery-electricity-04.jpg" alt=""></a></li>
+                  <li><a href="images/gallery-electricity-05.jpg" class="lightbox" title="Image caption"><img src="images/gallery-electricity-05.jpg" alt=""></a></li>
+                  <li><a href="images/gallery-electricity-06.jpg" class="lightbox" title="Image caption"><img src="images/gallery-electricity-06.jpg" alt=""></a></li>
+                </ul>
+              </div>
+
+            </div>
+          </li>
+          <!-- GALLERY : end -->
+
+          <% if user_signed_in? || @service.questions.any? %>
+            <!-- FAQ : begin -->
+            <li>
+              <h4 class="accordion-title"><i class="im im-question"></i>Frequently Asked Questions</h4>
+              <div class="accordion-content">
+                <% if @service.questions.any? %>
+                  <dl>
+                    <% @service.questions.each do |question| %>
+                      <dt>
+                        <% if user_signed_in? %>
+                          <div class="pull-right">
+                            <%= link_to 'Edit', edit_question_path(@service, question), class: 'btn btn-default' %>
+                          </div>
+                        <% end %>
+                        <%= question.question %>
+                      </dt>
+                      <dd><%= question.answer %></dd>
+                    <% end %>
+                    <% if user_signed_in? %>
+                      <p class="center">
+                        <%= link_to new_question_path(@service), class: 'btn btn-default' do %>
+                          <i class="fa fa-plus"></i>
+                          Add Question
+                        <% end %>
+                      </p>
+                    <% end %>
+                  </dl>
+                <% else %>
+                  <p class="center">
+                    There are no FAQs for this service
+                    <%= link_to 'add one here.', new_question_path(@service) %>
+                  </p>
+                <% end %>
+              </div>
+            </li>
+            <!-- FAQ : end -->
+          <% end %>
+
+        </ul>
+        <!-- ACCORDION : end -->
+
+      </div>
+      <!-- PAGE CONTENT : end -->
+
+    </div>
+    <div class="col-md-3 col-md-pull-9">
+
+      <hr class="c-divider m-size-large m-type-2 hidden-lg hidden-md">
+
+      <!-- SIDEBAR : begin -->
+      <div id="sidebar">
+        <div class="sidebar-widget-list">
+
+          <!-- SERVICES WIDGET : begin -->
+          <div class="widget services-widget">
+            <div class="widget-inner">
+              <h3 class="widget-title">Services</h3>
+              <%= render 'services/sidebar_list' %>
+            </div>
+          </div>
+          <!-- SERVICES WIDGET : end -->
+
+        </div>
+      </div>
+      <!-- SIDEBAR : end -->
+
+    </div>
+  </div>
+</div>

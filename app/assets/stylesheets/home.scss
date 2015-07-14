@@ -1,0 +1,32 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.centre,
+.center {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cta-inner p {
+  color: #fff;
+}
+
+.logo-link {
+  border: 0;
+}
+
+.page-title-top {
+  background-image: image-url('header-bg.jpg');
+}
+
+.testimonial-section {
+  background-image: image-url('testimonials-section-bg.jpg');
+  border-bottom: 0 !important;
+}
+
+.c-testimonial {
+  footer {
+    color: #fff;
+  }
+}

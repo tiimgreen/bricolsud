@@ -1,0 +1,72 @@
+<!-- HEADER : begin -->
+<header id="header">
+  <div class="header-inner">
+    <div class="container">
+
+      <!-- HEADER BRANDING : begin -->
+      <div class="header-branding">
+        <div class="branding-inner">
+
+          <!-- BRANDING LOGO : begin -->
+          <div class="brading-logo">
+            <%= link_to root_path do %>
+              <%= image_tag 'logo.png', alt: 'Bricolsud', data: { hires: image_path('logo.2x.png') } %>
+            <% end %>
+          </div>
+          <!-- BRANDING LOGO : end -->
+
+          <!-- BRANDING INFO : begin -->
+          <div class="brading-info">
+            <% if user_signed_in? %>
+              <strong><%= edit_setting('company_name') %></strong><br>
+              <em><%= edit_setting('company_tag_line') %></em>
+            <% else %>
+              <%= link_to root_path, class: 'logo-link' do %>
+                <strong><%= edit_setting('company_name') %></strong><br>
+                <em><%= edit_setting('company_tag_line') %></em>
+              <% end %>
+            <% end %>
+          </div>
+          <!-- BRANDING INFO : end -->
+
+        </div>
+      </div>
+      <!-- HEADER BRANDING : end -->
+
+      <!-- NAVIGATION TOGGLE : begin -->
+      <button class="header-navigation-toggle" type="button"><i class="fa fa-bars"></i></button>
+      <!-- NAVIGATION TOGGLE : end -->
+
+      <!-- HEADER NAVIGATION : begin -->
+      <div class="header-navigation">
+        <div class="navigation-inner">
+
+          <!-- HEADER MENU : begin -->
+          <nav class="header-menu">
+            <ul>
+              <li><%= link_to 'Home', root_path %></li>
+              <li><%= link_to 'Services', services_path %></li>
+              <li><%= link_to 'About', about_path %></li>
+              <li><%= link_to 'Contact', contact_path %></li>
+            </ul>
+          </nav>
+          <!-- HEADER MENU : end -->
+
+          <!-- HEADER SEARCH : begin -->
+          <div class="header-search">
+            <form action="http://www.google.co.uk/search" method="get">
+              <input class="search-input" type="text" placeholder="Search website..." name="q">
+              <button class="search-submit" type="submit"><i class="fa fa-chevron-right"></i></button>
+            </form>
+            <button class="search-toggle" type="button"><i class="fa fa-search"></i></button>
+          </div>
+          <!-- HEADER SEARCH : end -->
+
+        </div>
+      </div>
+      <!-- HEADER NAVIGATION : end -->
+
+    </div>
+  </div>
+</header>
+<!-- HEADER : end -->
