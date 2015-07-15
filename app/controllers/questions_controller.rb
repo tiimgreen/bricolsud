@@ -50,6 +50,7 @@ class QuestionsController < ApplicationController
   private
 
     def question_params
-      params.require(:question).permit(:question, :answer)
+      params.require(:question).permit(:question_en, :question_fr, :answer_en,
+                                       :answer_fr)
     end
 end

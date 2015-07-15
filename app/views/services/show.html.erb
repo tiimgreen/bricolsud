@@ -138,9 +138,9 @@
                             <%= link_to 'Delete', delete_question_path(@service, question), class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
                           </div>
                         <% end %>
-                        <%= question.question %>
+                        <%= question["question_#{I18n.locale}"] %>
                       </dt>
-                      <dd><%= question.answer %></dd>
+                      <dd><%= question["answer_#{I18n.locale}"] %></dd>
                     <% end %>
                     <% if user_signed_in? %>
                       <p class="center serice-add-more">

@@ -34,9 +34,9 @@ Rails.application.routes.draw do
   match 'services/:id',    to: 'services#update', via: :patch
 
   # Service Questions
-  get 'services/:service_id/questions/:question_id',          to: 'questions#show',    as: :service_question
   get 'services/:id/questions',                               to: 'questions#index',   as: :questions
   get 'services/:id/questions/new',                           to: 'questions#new',     as: :new_question
+  get 'services/:service_id/questions/:question_id',          to: 'questions#show',    as: :service_question
   get 'services/:service_id/questions/:question_id/edit',     to: 'questions#edit',    as: :edit_question
   match 'services/:service_id/questions/:question_id',        to: 'questions#update',  via: :patch
   match 'services/:id/questions',                             to: 'questions#create',  as: :create_question, via: :post
