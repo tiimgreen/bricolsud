@@ -1,14 +1,14 @@
 fr:
-  hello: "Bonjour"
+  hello: 'Bonjour'
 
   general:
     home: 'Accueil'
 
   nav:
-    home: "Accueil"
-    services: "Services"
-    about: "À propos de nous"
-    contact: "Contacter"
+    home: 'Accueil'
+    services: 'Services'
+    about: 'À propos de nous'
+    contact: 'Contacter'
 
   services:
     faq: 'Questions Fréquemment Posées'

@@ -1,14 +1,14 @@
 en:
-  hello: "Hello world"
+  hello: 'Hello world'
 
   general:
     home: 'Home'
 
   nav:
-    home: "Home"
-    services: "Services"
-    about: "About Us"
-    contact: "Contact"
+    home: 'Home'
+    services: 'Services'
+    about: 'About Us'
+    contact: 'Contact'
 
   services:
     faq: 'Frequently Asked Questions'
