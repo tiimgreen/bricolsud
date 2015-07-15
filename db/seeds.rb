@@ -38,11 +38,56 @@ Setting.create(
 
 puts "Settings created".green
 
-Service.create(title: 'Electrics', font_class: 'fa fa-bolt', order: 1)
-Service.create(title: 'Heating', font_class: 'fa fa-fire', order: 2)
-Service.create(title: 'Plumbing', font_class: 'fa fa-wrench', order: 3)
-Service.create(title: 'Painting', font_class: 'fa fa-paint-brush', order: 4)
-Service.create(title: 'Gardening', font_class: 'fa fa-gavel', order: 5)
-Service.create(title: 'Property Maintenence', font_class: 'fa fa-home', order: 6)
-Service.create(title: 'Roofing Repair', order: 7)
-Service.create(title: 'General DIY', order: 8)
+Service.create(
+  title: 'Electrics',
+  body: 'Electrics Body',
+  font_class: 'fa fa-bolt',
+  order: 1
+)
+
+Service.create(
+  title: 'Heating',
+  body: 'Heating Body',
+  font_class: 'fa fa-fire',
+  order: 2
+)
+
+Service.create(
+  title: 'Plumbing',
+  body: 'Plumbing Body',
+  font_class: 'fa fa-wrench',
+  order: 3
+)
+
+Service.create(
+  title: 'Painting',
+  body: 'Painting Body',
+  font_class: 'fa fa-paint-brush',
+  order: 4
+)
+
+Service.create(
+  title: 'Gardening',
+  body: 'Gardening Body',
+  font_class: 'fa fa-gavel',
+  order: 5
+)
+
+Service.create(
+  title: 'Property Maintenence',
+  body: 'Property Maintenence Body',
+  font_class: 'fa fa-home',
+  order: 6
+)
+
+Service.create(
+  title: 'Roofing Repair',
+  body: 'Roofing Body',
+  order: 7
+)
+
+Service.create(
+  title: 'General DIY',
+  body: 'General DIY Body',
+  order: 8
+)

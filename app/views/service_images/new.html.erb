@@ -3,7 +3,7 @@
     <%= render 'shared/error_messages', object: f.object %>
 
     <div class="form-group">
-      <%= f.label :alt_text, class: 'col-sm-2 control-label' %>
+      <%= f.label :alt_text, 'Caption', class: 'col-sm-2 control-label' %>
       <div class="col-sm-10">
         <%= f.text_field :alt_text, auto_focus: true, class: 'form-control' %>
       </div>
