@@ -6,3 +6,8 @@ fr:
     services: "Services"
     about: "Sur"
     contact: "Contact"
+
+  services:
+    faq: 'Questions Fréquemment Posées'
+    pricing: 'Établissement des prix'
+    gallery: 'Gallery'

@@ -2,7 +2,7 @@
     <% @services.each do |service| %>
         <li class="<% if service_url(service) == request.original_url %>m-active<% end %>">
             <i class="<%= service.font_class %>"></i>
-            <%= link_to service.title, service %>
+            <%= link_to service["title_#{I18n.locale}"], service %>
         </li>
     <% end %>
 </ul>

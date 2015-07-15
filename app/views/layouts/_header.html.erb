@@ -45,6 +45,16 @@
           <!-- HEADER MENU : begin -->
           <nav class="header-menu">
             <ul>
+              <li>
+                <%= link_to root_url(subdomain: :en), class: 'nav-flag-link' do %>
+                  <%= image_tag 'uk.png', alt: 'UK', class: 'nav-flag' %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to root_url(subdomain: :fr), class: 'nav-flag-link' do %>
+                  <%= image_tag 'france.png', alt: 'France', class: 'nav-flag' %>
+                <% end %>
+              </li>
               <li><%= link_to t('nav.home'), root_path %></li>
               <li><%= link_to t('nav.services'), services_path %></li>
               <li><%= link_to t('nav.about'), about_path %></li>

@@ -6,3 +6,8 @@ en:
     services: "Services"
     about: "About"
     contact: "Contact"
+
+  services:
+    faq: 'Frequently Asked Questions'
+    pricing: 'Pricing'
+    gallery: 'Gallery'

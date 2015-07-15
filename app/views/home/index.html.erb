@@ -31,12 +31,12 @@
                   <div class="service-title service-<%= i + 1 %>">
                     <div><div><div>
                       <span class="service-icon"><i class="<%= service.font_class %>"></i></span>
-                      <h3><%= link_to service.title, service %></h3>
+                      <h3><%= link_to service["title_#{locale}"], service %></h3>
                     </div></div></div>
                   </div>
                   <div class="service-description">
                     <div><div>
-                      <p><%= service.short_info %></p>
+                      <p><%= service["short_info_#{locale}"] %></p>
                       <p><%= link_to 'More Info', service, class: 'c-button m-size-small' %></p>
                     </div></div>
                   </div>

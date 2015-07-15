@@ -8,7 +8,7 @@
       <!-- PAGE TITLE TEXT : begin -->
       <div class="page-title-text">
         <div class="container">
-          <h1><%= @service.title %></h1>
+          <h1><%= @service["title_#{I18n.locale}"] %></h1>
         </div>
       </div>
       <!-- PAGE TITLE TEXT : end -->
@@ -27,7 +27,7 @@
           <div class="page-title-breadcrumbs">
             <ul>
               <li><%= link_to 'Home', root_path %></li>
-              <li><%= @service.title %></li>
+              <li><%= @service["title_#{I18n.locale}"] %></li>
             </ul>
           </div>
           <!-- PAGE TITLE BREADCRUMBS : end -->
@@ -54,11 +54,11 @@
       <!-- PAGE CONTENT : begin -->
       <div id="page-content">
 
-        <h2><%= @service.title %></h2>
+        <h2><%= @service["title_#{I18n.locale}"] %></h2>
 
         <div class="row">
           <div class="col-md-12">
-            <%= @markdown.render(@service.body).html_safe %>
+            <%= @markdown.render(@service["body_#{I18n.locale}"]).html_safe %>
           </div>
         </div>
 
@@ -69,7 +69,7 @@
 
           <!-- PRICING : begin -->
           <li>
-            <h4 class="accordion-title"><i class="im im-cash"></i>Pricing</h4>
+            <h4 class="accordion-title"><i class="im im-cash"></i><%= t('services.pricing') %></h4>
             <div class="accordion-content">
               <p class="center">
                 <%= edit_text(@page, "service_#{@service.id}_pricing", 'I prefer to quote jobs individually. To get a free, no obligation quote [get in touch](/contact).', p_tags: false) %>
@@ -81,7 +81,7 @@
           <% if @service.service_images.any? || user_signed_in? %>
             <!-- GALLERY : begin -->
             <li>
-              <h4 class="accordion-title"><i class="im im-photo"></i>Gallery of Realized Projects</h4>
+              <h4 class="accordion-title"><i class="im im-photo"></i><%= t('services.gallery') %></h4>
               <div class="accordion-content">
 
                 <div class="c-gallery m-4-per-row">
@@ -126,7 +126,7 @@
           <% if user_signed_in? || @service.questions.any? %>
             <!-- FAQ : begin -->
             <li>
-              <h4 class="accordion-title"><i class="im im-question"></i>Frequently Asked Questions</h4>
+              <h4 class="accordion-title"><i class="im im-question"></i><%= t('services.faq') %></h4>
               <div class="accordion-content">
                 <% if @service.questions.any? %>
                   <dl>
@@ -180,7 +180,7 @@
           <!-- SERVICES WIDGET : begin -->
           <div class="widget services-widget">
             <div class="widget-inner">
-              <h3 class="widget-title">Services</h3>
+              <h3 class="widget-title"><%= t('nav.services') %></h3>
               <%= render 'services/sidebar_list' %>
             </div>
           </div>

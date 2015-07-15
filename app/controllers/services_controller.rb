@@ -8,7 +8,7 @@ class ServicesController < ApplicationController
   def show
     @services = Service.all.order(:order)
     @service = Service.find(params[:id])
-    @page_title = @service.title
+    @page_title = @service["title_#{I18n.locale}"]
     @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML,
                                         autolink: true,
                                         space_after_headers: true,
@@ -34,7 +34,8 @@ class ServicesController < ApplicationController
   private
 
     def service_params
-      params.require(:service).permit(:title, :body, :font_class, :order,
-                                      :short_info)
+      params.require(:service).permit(:title_en, :title_fr, :body_en, :body_fr,
+                                      :short_info_en, :short_info_fr,
+                                      :font_class, :order)
     end
 end
