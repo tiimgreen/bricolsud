@@ -1,6 +1,9 @@
 en:
   hello: "Hello world"
 
+  general:
+    home: 'Home'
+
   nav:
     home: "Home"
     services: "Services"
@@ -11,3 +14,11 @@ en:
     faq: 'Frequently Asked Questions'
     pricing: 'Pricing'
     gallery: 'Gallery'
+
+  contact:
+    name: 'Name'
+    email: 'Email'
+    phone: 'Phone'
+    subject: 'Subject'
+    message: 'Message'
+    send_message: 'Send Message'

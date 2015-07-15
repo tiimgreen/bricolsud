@@ -1,13 +1,24 @@
 fr:
   hello: "Bonjour"
 
+  general:
+    home: 'Accueil'
+
   nav:
     home: "Accueil"
     services: "Services"
-    about: "Sur"
-    contact: "Contact"
+    about: "A propos de moi"
+    contact: "Contacter"
 
   services:
     faq: 'Questions Fréquemment Posées'
     pricing: 'Établissement des prix'
     gallery: 'Gallery'
+
+  contact:
+    name: 'Nom'
+    email: 'Email'
+    phone: 'Téléphone'
+    subject: 'Sujet'
+    message: 'Message'
+    send_message: 'Envoyer Le Message'

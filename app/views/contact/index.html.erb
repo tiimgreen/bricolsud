@@ -26,7 +26,7 @@
           <!-- PAGE TITLE BREADCRUMBS : begin -->
           <div class="page-title-breadcrumbs">
             <ul>
-              <li><%= link_to 'Home', root_path %></li>
+              <li><%= link_to t('general.home'), root_path %></li>
               <li><%= edit_text(@page, 'page_title', 'Contact', p_tags: false) %></li>
             </ul>
           </div>
@@ -122,25 +122,25 @@
 
           <!-- NAME FIELD : begin -->
           <div class="form-field">
-            <label for="contact-name">Your Name <span>*</span></label>
+            <label for="contact-name"><%= t('contact.name') %> <span>*</span></label>
             <input id="contact-name" name="contact[name]" class="m-required">
           </div>
           <!-- NAME FIELD : end -->
 
           <!-- EMAIL FIELD : begin -->
           <div class="form-field">
-            <label for="contact-email">Your Email Address <span>*</span></label>
+            <label for="contact-email"><%= t('contact.email') %> <span>*</span></label>
             <input id="contact-email" name="contact[email]" class="m-required m-email">
           </div>
           <p style="display: none;">
-            <label for="contact-email-hp">Re Email Address</label>
+            <label for="contact-email-hp">Re <%= t('contact.email') %></label>
             <input id="contact-email-hp" name="contact-email-hp">
           </p>
           <!-- EMAIL FIELD : end -->
 
           <!-- PHONE FIELD : begin -->
           <div class="form-field">
-            <label for="contact-phone">Your Phone Number <span>*</span></label>
+            <label for="contact-phone"><%= t('contact.phone') %> <span>*</span></label>
             <input id="contact-phone" name="contact[phone]"class="m-required">
           </div>
           <!-- PHONE FIELD : end -->
@@ -150,21 +150,21 @@
 
           <!-- SUBJECT FIELD : begin -->
           <div class="form-field">
-            <label for="contact-subject">Message Subject</label>
+            <label for="contact-subject"><%= t('contact.subject') %></label>
             <input id="contact-subject" name="contact[subject]">
           </div>
           <!-- SUBJECT FIELD : end -->
 
           <!-- MESSAGE FIELD : begin -->
           <div class="form-field">
-            <label for="contact-message">Message <span>*</span></label>
+            <label for="contact-message"><%= t('contact.message') %> <span>*</span></label>
             <textarea id="contact-message" name="contact[message]" class="m-required"></textarea>
           </div>
           <!-- MESSAGE FIELD : end -->
 
           <!-- SUBMIT BUTTON : begin -->
           <div class="form-field">
-            <%= submit_tag 'Send Message', class: 'submit-btn c-button' %>
+            <%= submit_tag t('contact.send_message'), class: 'submit-btn c-button' %>
           </div>
           <!-- SUBMIT BUTTON : end -->
 

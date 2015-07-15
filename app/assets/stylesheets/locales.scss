@@ -14,6 +14,9 @@
   .nav-flag {
     margin-top: 3px;
     height: 20px;
+  }
+
+  &.active .nav-flag {
     border: 2px solid #ffb617;
   }
 }

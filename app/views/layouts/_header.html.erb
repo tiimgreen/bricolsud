@@ -46,12 +46,20 @@
           <nav class="header-menu">
             <ul>
               <li>
-                <%= link_to root_url(subdomain: :en), class: 'nav-flag-link' do %>
+                <%
+                  en_class = 'nav-flag-link'
+                  en_class += ' active' if I18n.locale == :en
+                %>
+                <%= link_to root_url(subdomain: :en), class: en_class do %>
                   <%= image_tag 'uk.png', alt: 'UK', class: 'nav-flag' %>
                 <% end %>
               </li>
               <li>
-                <%= link_to root_url(subdomain: :fr), class: 'nav-flag-link' do %>
+                <%
+                  fr_class = 'nav-flag-link'
+                  fr_class += ' active' if I18n.locale == :fr
+                %>
+                <%= link_to root_url(subdomain: :fr), class: fr_class do %>
                   <%= image_tag 'france.png', alt: 'France', class: 'nav-flag' %>
                 <% end %>
               </li>

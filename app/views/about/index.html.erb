@@ -26,7 +26,7 @@
           <!-- PAGE TITLE BREADCRUMBS : begin -->
           <div class="page-title-breadcrumbs">
             <ul>
-              <li><a href="/">Home</a></li>
+              <li><%= link_to t('general.home'), root_path %></li>
               <li><%= edit_text(@page, 'page_title', 'About Us', p_tags: false) %></li>
             </ul>
           </div>
