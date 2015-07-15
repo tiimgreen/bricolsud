@@ -35,5 +35,11 @@ module Bricolsud
     config.generators do |g|
       g.javascript_engine :js
     end
+
+    config.i18n.enforce_available_locales = false
+    config.i18n.available_locales = [:fr, :en]
+    config.i18n.default_locale = :en
+
+    config.i18n_used = true
   end
 end

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   match 'contact', to: 'contact#send_mail', as: :submit_contact_form, via: :post
 
   get 'about', to: 'about#index', as: :about
+  get 'locale/:locale', to: 'locales#set', as: :set_locale
 
   # Settings
   get 'settings',          to: 'settings#index',  as: :settings

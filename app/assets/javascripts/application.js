@@ -15,4 +15,5 @@
 //= require third-party
 //= require library
 //= require scripts
+//= require bootstrap
 //= require_tree .

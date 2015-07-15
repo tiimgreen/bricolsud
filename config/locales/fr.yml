@@ -1,0 +1,8 @@
+fr:
+  hello: "Bonjour"
+
+  nav:
+    home: "Accueil"
+    services: "Services"
+    about: "Sur"
+    contact: "Contact"

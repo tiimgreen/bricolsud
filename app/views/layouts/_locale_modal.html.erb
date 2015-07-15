@@ -1,0 +1,37 @@
+<div class="modal fade" id="locale_modal" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Set Language</h4>
+      </div>
+
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6">
+            <h3 class="center">English</h3>
+
+            <p class="center">
+              <%= image_tag 'uk.png', alt: 'UK', class: 'country-flag' %><br>
+
+              <%= link_to 'English', root_url(subdomain: :en), class: 'c-button m-type-2 m-size-medium language-button' %>
+            </p>
+          </div>
+
+          <div class="col-md-6">
+            <h3 class="center">French</h3>
+
+            <p class="center">
+              <%= image_tag 'france.png', alt: 'France', class: 'country-flag' %><br>
+
+              <%= link_to 'Français', root_url(subdomain: :fr), class: 'c-button m-type-2 m-size-medium language-button' %>
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

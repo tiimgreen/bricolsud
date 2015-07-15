@@ -32,10 +32,17 @@ module ApplicationHelper
     end
   end
 
-  def on_admin_page?
-    cont = controller.controller_name
-    act = controller.action_name
+  # Short method for checking if on certain page
+  def controller_on_page(cont, act = '')
+    if act.present?
+      controller_name == cont.downcase &&
+      action_name == act.downcase
+    else
+      controller_name == cont.downcase
+    end
+  end
 
-    (cont == 'settings')
+  def on_admin_page?
+    (controller.controller_name == 'settings')
   end
 end
