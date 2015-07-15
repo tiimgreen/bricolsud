@@ -80,7 +80,7 @@ module AdminHelper
   end
 
   def edit_setting(key)
-    #key += "_#{I18n.locale}" if Rails.configuration.i18n_used
+    key += "_#{I18n.locale}" if Rails.configuration.i18n_used
     setting = Setting.find_by(key: key)
     value_to_return = setting.value
 

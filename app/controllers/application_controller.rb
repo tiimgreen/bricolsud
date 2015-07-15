@@ -14,7 +14,12 @@ class ApplicationController < ActionController::Base
       end
 
       @choose_lang = request.subdomain == "" && !controller_on_page('sessions', 'new')
-      I18n.locale = request.subdomain unless @choose_lang
+
+      if controller_on_page('sessions', 'new') || request.subdomain == ""
+        I18n.locale = :en
+      else
+        I18n.locale = request.subdomain
+      end
     end
 
     def set_title
