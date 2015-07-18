@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
         redirect_to new_user_session_url(subdomain: '')
       end
 
-      @choose_lang = request.subdomain == "" && !controller_on_page('sessions', 'new')
+      @choose_lang = request.subdomain == "" && controller_on_page('home', 'index')
 
       if controller_on_page('sessions', 'new') || request.subdomain == ""
         I18n.locale = :en

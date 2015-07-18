@@ -6,8 +6,6 @@ if ($('#map-canvas').length > 0) {
       center: new google.maps.LatLng(45.145, 0.2),
       mapTypeId: google.maps.MapTypeId.TERRAIN
     };
-
-    var highlightedArea;
     var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
     // Define the LatLng coordinates for the polygon's path.

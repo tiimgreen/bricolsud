@@ -39,12 +39,12 @@
 
                 <p>
                   <%= edit_text(@page, 'global_footer_about_body', 'I can provide a wide range of services including, but not limited to,
-  __<a href="/services/plumbing">Plumbing</a>__,
-  __<a href="/services/heating">Heating</a>__,
-  __<a href="/services/electrics">Electrical Work</a>__,
-  __<a href="/services/roofing">Roofing</a>__,
-  __<a href="/services/painting">Painting</a>__, and
-  __<a href="/services/renovation">Renovation</a>__.
+  __[Plumbing](/services/plumbing)__,
+  __[Heating](/services/heating)__,
+  __[Electrical Work](/services/electrics)__,
+  __[Roofing](/services/roofing)__,
+  __[Painting](/services/painting)__, and
+  __[Renovation](/services/renovation)__.
 </p>
 
 <p>If there are any other handy-man jobs you need doing around the house,
@@ -66,7 +66,11 @@
             <div class="widget-inner">
               <h3 class="widget-title"><%= edit_text(@page, 'global_footer_contact_title', 'Quick <strong>Contact</strong>') %></h3>
               <div class="widget-content">
-                <p><%= edit_text(@page, 'global_footer_contact_body', 'Please call <strong>0675 889731</strong> or write at <strong><a href="mailto:d.suddick@sky.com">d.suddick@sky.com</a></strong>.<br><br><strong>Le Perier</strong><br>Echourgnac<br>France') %></p>
+                <p><%= edit_text(@page, 'global_footer_contact_body', 'Please call __0675 889731__ or write at __[d.suddick@sky.com](mailto:d.suddick@sky.com)__.
+
+__Le Perier__
+Echourgnac
+France') %></p>
               </div>
             </div>
           </div>
