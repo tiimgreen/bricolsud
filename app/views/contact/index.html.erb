@@ -63,8 +63,9 @@
         <div class="c-icon-block">
           <i class="im im-compass"></i>
           <h3><%= edit_text(@page, 'operating_area_title', 'Operating Area', render_markdown: false) %></h3>
-          <%= edit_text(@page, 'operating_area_body', 'I operate in <strong>and around</strong> the areas of:<br>
-            <strong>Chalias/Brossac</strong>, <strong>Riberac</strong>, and <strong>Montpon</strong>.') %>
+          <%= edit_text(@page, 'operating_area_body', 'I operate in __and around__ the areas of:
+
+__Chalias/Brossac__, __Riberac__, and __Montpon__.') %>
           </p>
         </div>
         <!-- ICON BLOCK : end -->
@@ -75,7 +76,9 @@
         <div class="c-icon-block">
           <i class="im im-phone"></i>
           <h3><%= edit_text(@page, 'free_quote_title', 'Free Quote', render_markdown: false) %></h3>
-          <%= edit_text(@page, 'free_quote_body', '0675 889731<br><a href="mailto:d.suddick@sky.com">d.suddick@sky.com</a>') %>
+          <%= edit_text(@page, 'free_quote_body', '0675 889731
+
+[d.suddick@sky.com](mailto:d.suddick@sky.com)') %>
           <p></p>
         </div>
         <!-- ICON BLOCK : end -->
@@ -84,20 +87,7 @@
 
       </div>
       <div class="col-md-8">
-
-        <!-- GOOGLE MAP : begin -->
-        <!-- If you specify the "data-address" attribute, "data-latitude" and "data-longitude" are optional
-        <div class="c-gmap"
-          data-address="8833 Sunset Blvd, West Hollywood, CA 90069, USA"
-          data-latitude="34.0909191"
-          data-longitude="-118.38417279999999"
-          data-zoom="18"
-          data-maptype="SATELLITE"
-          data-enable-mousewheel="false">
-        </div>
-        GOOGLE MAP : end -->
         <div id="map-canvas"></div>
-
       </div>
     </div>
 
@@ -110,11 +100,11 @@
       <input type="hidden" name="contact-form">
 
       <!-- FORM VALIDATION ERROR MESSAGE : begin -->
-      <p class="c-alert-message m-warning m-validation-error" style="display: none;"><i class="ico fa fa-exclamation-circle"></i>Please fill in all required (*) fields.</p>
+      <p class="c-alert-message m-warning m-validation-error" style="display: none;"><i class="ico fa fa-exclamation-circle"></i><%= t('contact.errors.required') %></p>
       <!-- FORM VALIDATION ERROR MESSAGE : end -->
 
       <!-- SENDING REQUEST ERROR MESSAGE : begin -->
-      <p class="c-alert-message m-warning m-request-error" style="display: none;"><i class="ico fa fa-exclamation-circle"></i>There was a connection problem. Try again later.</p>
+      <p class="c-alert-message m-warning m-request-error" style="display: none;"><i class="ico fa fa-exclamation-circle"></i><%= t('contact.errors.connection') %></p>
       <!-- SENDING REQUEST ERROR MESSAGE : end -->
 
       <div class="row">

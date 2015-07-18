@@ -127,6 +127,7 @@ Service.create(
   title_fr: 'Toiture réparation',
   body_en: 'Roofing Body',
   body_fr: 'Toiture réparation Body',
+  font_class: 'fa fa-legal'
   order: 7
 )
 

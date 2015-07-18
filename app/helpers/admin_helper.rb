@@ -23,10 +23,18 @@ module AdminHelper
     if user_signed_in?
       value_to_return += " "
       value_to_return +=
-        link_to('Edit', edit_page_element_text_path(page_element), class: 'edit-page-element')
+        link_to(
+          'Edit',
+          edit_page_element_text_path(
+            page_element,
+            markdown: !options.has_key?(:render_markdown) || options[:render_markdown]
+          ),
+          class: 'edit-page-element'
+        )
     end
 
     if !options.has_key?(:render_markdown) || options[:render_markdown]
+
       value_to_return = @markdown.render(value_to_return).html_safe
 
       if options.has_key?(:p_tags) && !options[:p_tags]

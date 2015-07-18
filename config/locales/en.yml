@@ -22,3 +22,6 @@ en:
     subject: 'Subject'
     message: 'Message'
     send_message: 'Send Message'
+    errors:
+      required: 'Please fill in all required fields. (*)'
+      connection: 'There was a connection problem. Try again later.'
