@@ -134,8 +134,8 @@
                       <dt>
                         <% if user_signed_in? %>
                           <div class="pull-right">
-                            <%= link_to 'Edit', edit_question_path(@service, question), class: 'btn btn-default' %>
-                            <%= link_to 'Delete', delete_question_path(@service, question), class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+                            <%= link_to 'Edit', edit_service_question_path(@service, question), class: 'btn btn-default' %>
+                            <%= link_to 'Delete', service_question_path(@service, question), class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
                           </div>
                         <% end %>
                         <%= question["question_#{I18n.locale}"] %>
@@ -144,7 +144,7 @@
                     <% end %>
                     <% if user_signed_in? %>
                       <p class="center serice-add-more">
-                        <%= link_to new_question_path(@service), class: 'btn btn-default' do %>
+                        <%= link_to new_service_question_path(@service), class: 'btn btn-default' do %>
                           <i class="fa fa-plus"></i>
                           Add Question
                         <% end %>
@@ -154,7 +154,7 @@
                 <% else %>
                   <p class="center">
                     There are no FAQs for this service
-                    <%= link_to 'add one here.', new_question_path(@service) %>
+                    <%= link_to 'add one here.', new_service_question_path(@service) %>
                   </p>
                 <% end %>
               </div>

@@ -2,16 +2,17 @@ class QuestionsController < ApplicationController
   before_action :authenticate_user!
 
   def new
+    @service = Service.find(params[:service_id])
     @question = Question.new
   end
 
   def create
-    @service = Service.find(params[:id])
+    @service = Service.find(params[:service_id])
+    @question = Question.new(question_params.merge({ service_id: @service.id }))
 
-    @question = @service.questions.build(question_params)
     if @question.save
       flash[:success] = 'Question created'
-      redirect_to @service
+      redirect_to @question.service
     else
       render :new
     end
@@ -19,12 +20,12 @@ class QuestionsController < ApplicationController
 
   def edit
     @service = Service.find(params[:service_id])
-    @question = Question.find(params[:question_id])
+    @question = Question.find(params[:id])
   end
 
   def update
     @service = Service.find(params[:service_id])
-    @question = Question.find(params[:question_id])
+    @question = Question.find(params[:id])
 
     if @question.update_attributes(question_params)
       flash[:success] = 'Question updated'
@@ -36,7 +37,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @service = Service.find(params[:service_id])
-    @question = Question.find(params[:question_id])
+    @question = Question.find(params[:id])
 
     if @question.destroy
       flash[:success] = 'Question deleted'
@@ -51,6 +52,6 @@ class QuestionsController < ApplicationController
 
     def question_params
       params.require(:question).permit(:question_en, :question_fr, :answer_en,
-                                       :answer_fr)
+                                       :answer_fr, :service_id)
     end
 end

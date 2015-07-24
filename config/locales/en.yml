@@ -25,3 +25,19 @@ en:
     errors:
       required: 'Please fill in all required fields. (*)'
       connection: 'There was a connection problem. Try again later.'
+
+  activerecord:
+    attributes:
+      question:
+        question_fr:
+          one:   Question (French)
+          other: Question (French)
+        question_en:
+          one:   Question (English)
+          other: Question (English)
+        answer_fr:
+          one:   Answer (French)
+          other: Answer (French)
+        answer_en:
+          one:   Answer (English)
+          other: Answer (English)

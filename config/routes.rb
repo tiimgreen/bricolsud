@@ -9,38 +9,18 @@ Rails.application.routes.draw do
   match 'contact', to: 'contact#send_mail', as: :submit_contact_form, via: :post
 
   get 'about', to: 'about#index', as: :about
-  get 'locale/:locale', to: 'locales#set', as: :set_locale
 
-  # Settings
-  get 'settings',          to: 'settings#index',  as: :settings
-  get 'settings/:id/edit', to: 'settings#edit',   as: :edit_setting
-  get 'settings/:id',      to: 'settings#show',   as: :setting
-  match 'settings/:id',    to: 'settings#update', via: :patch
+  resources :settings, only: %i(index show edit update)
 
-  # PageElementTexts
-  get 'page-element-texts/:id/edit', to: 'page_element_texts#edit',   as: :edit_page_element_text
-  get 'page-element-texts/:id',      to: 'page_element_texts#show',   as: :page_element_text
-  match 'page-element-texts/:id',    to: 'page_element_texts#update', via: :patch
-
-  # PageElementLinks
-  get 'page-element-links/:id/edit', to: 'page_element_links#edit',   as: :edit_page_element_link
-  get 'page-element-links/:id',      to: 'page_element_links#show',   as: :page_element_link
-  match 'page-element-links/:id',    to: 'page_element_links#update', via: :patch
+  resources :page_element_texts, path: 'page-element-texts', only: %i(edit show update)
+  resources :page_element_links, path: 'page-element-links', only: %i(edit show update)
 
   # Services
-  get 'services',          to: 'services#index', as: :services
-  get 'services/:id',      to: 'services#show',  as: :service
-  get 'services/:id/edit', to: 'services#edit',  as: :edit_service
-  match 'services/:id',    to: 'services#update', via: :patch
+  resources :services, only: %i(index show edit update) do
+    resources :questions
+  end
 
-  # Service Questions
-  get 'services/:id/questions',                               to: 'questions#index',   as: :questions
-  get 'services/:id/questions/new',                           to: 'questions#new',     as: :new_question
-  get 'services/:service_id/questions/:question_id',          to: 'questions#show',    as: :service_question
-  get 'services/:service_id/questions/:question_id/edit',     to: 'questions#edit',    as: :edit_question
-  match 'services/:service_id/questions/:question_id',        to: 'questions#update',  via: :patch
-  match 'services/:id/questions',                             to: 'questions#create',  as: :create_question, via: :post
-  match 'services/:service_id/questions/:question_id/delete', to: 'questions#destroy', as: :delete_question, via: :delete
+  get 'services/:service_id/questions', to: 'questions#index', as: :questions
 
   get 'services/:id/images',                            to: 'service_images#index',   as: :service_images
   get 'services/:id/images/new',                        to: 'service_images#new',     as: :new_service_image
