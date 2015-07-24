@@ -7,8 +7,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @service = Service.find(params[:service_id])
-    @question = Question.new(question_params.merge({ service_id: @service.id }))
+    @question = Question.new(question_params.merge({ service_id: params[:service_id].to_i }))
 
     if @question.save
       flash[:success] = 'Question created'
