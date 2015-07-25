@@ -1,35 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
-Setting.create(
-  key: 'company_address_short_en',
-  pretty_name: 'Short Company Address (English)',
-  value: 'Le Perier, Echourgnac, France'
-)
-
-Setting.create(
-  key: 'company_address_short_fr',
-  pretty_name: 'Short Company Address (French)',
-  value: 'Le Perier, Echourgnac, France'
-)
-
-Setting.create(
-  key: 'company_phone_number_en',
-  pretty_name: 'Company Phone Number (English)',
-  value: '0123 456 789'
-)
-
-Setting.create(
-  key: 'company_phone_number_fr',
-  pretty_name: 'Company Phone Number (French)',
-  value: '0123 456 789'
-)
-
 Setting.create(
   key: 'company_name_en',
   pretty_name: 'Copmany Name (English)',
@@ -54,19 +22,7 @@ Setting.create(
   value: 'd.suddick@sky.com'
 )
 
-Setting.create(
-  key: 'company_tag_line_en',
-  pretty_name: 'Tag Line (English)',
-  value: 'Anything for the House & Garden'
-)
-
-Setting.create(
-  key: 'company_tag_line_fr',
-  pretty_name: 'Tag Line (French)',
-  value: 'Tout pour la maison et le jardin'
-)
-
-puts "Settings created".green
+puts 'Settings created'.green
 
 Service.create(
   title_en: 'Electrics',
@@ -87,11 +43,11 @@ Service.create(
 )
 
 Service.create(
-  title_en: 'Plumbing',
-  title_fr: 'Plomberie',
-  body_en: 'Plumbing Body',
-  body_fr: 'Plomberie Body',
-  font_class: 'fa fa-wrench',
+  title_en: 'Windows & Shutters',
+  title_fr: 'Fenêtres et volets',
+  body_en: 'Windows & Shutters Body',
+  body_fr: 'Fenêtres et volets Body',
+  font_class: 'fa fa-th-large',
   order: 3
 )
 
@@ -123,11 +79,11 @@ Service.create(
 )
 
 Service.create(
-  title_en: 'Roofing Repair',
-  title_fr: 'Toiture réparation',
-  body_en: 'Roofing Body',
-  body_fr: 'Toiture réparation Body',
-  font_class: 'fa fa-legal',
+  title_en: 'Plumbing',
+  title_fr: 'Plomberie',
+  body_en: 'Plumbing Body',
+  body_fr: 'Plomberie Body',
+  font_class: 'fa fa-wrench',
   order: 7
 )
 
@@ -138,3 +94,15 @@ Service.create(
   body_fr: 'DIY général body',
   order: 8
 )
+
+puts 'Services created'.green
+
+User.create(
+  first_name: 'Tim',
+  last_name: 'Green',
+  email: 'tiimgreen@gmail.com',
+  password: 'password',
+  password_confirmation: 'password'
+)
+
+puts 'Admin user created'.green
