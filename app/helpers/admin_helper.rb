@@ -14,32 +14,36 @@ module AdminHelper
                                         autolink: true,
                                         space_after_headers: true,
                                         prettify: true)
+    uses_markdown = !options.has_key?(:render_markdown) || options[:render_markdown]
+    uses_p_tags = options.has_key?(:p_tags) && options[:p_tags]
 
     page_element =
-      PageElementText.create_with(value: default_text).find_or_create_by(key: key, web_page_id: page_id)
+      PageElementText
+        .create_with(value: default_text)
+        .find_or_create_by(key: key, web_page_id: page_id)
 
     value_to_return = page_element.value
 
     if user_signed_in?
-      value_to_return += " "
       value_to_return +=
         link_to(
           'Edit',
-          edit_page_element_text_path(
-            page_element,
-            markdown: !options.has_key?(:render_markdown) || options[:render_markdown]
-          ),
+          edit_page_element_text_path(page_element, markdown: uses_markdown),
           class: 'edit-page-element'
         )
     end
 
-    if !options.has_key?(:render_markdown) || options[:render_markdown]
+    return value_to_return.html_safe unless uses_markdown
 
-      value_to_return = @markdown.render(value_to_return).html_safe
+    value_to_return.gsub!(/\r\n/, '<br>')
+    value_to_return = @markdown.render(value_to_return).html_safe
 
-      if options.has_key?(:p_tags) && !options[:p_tags]
-        value_to_return = Regexp.new(/\A<p>(.*)<\/p>\Z/m).match(value_to_return)[1] rescue value_to_return
-      end
+    return value_to_return if uses_p_tags
+
+    begin
+      value_to_return = Regexp.new(/\A<p>(.*)<\/p>\Z/m).match(value_to_return)[1]
+    rescue
+      value_to_return
     end
 
     value_to_return.html_safe
@@ -54,9 +58,9 @@ module AdminHelper
     page_id = key.start_with?('global') ? 0 : page.id
 
     if (page_element = PageElementText.find_by(key: key, web_page_id: page_id))
-      page_element.value.html_safe
+      page_element.value.gsub!(/\r\n/, '<br>').html_safe
     else
-      default.html_safe
+      default.gsub!(/\r\n/, '<br>').html_safe
     end
   end
 
@@ -78,11 +82,10 @@ module AdminHelper
 
     value_to_return = link_to(page_element_link.text, page_element_link.link, options)
 
-    if user_signed_in?
-      value_to_return += " "
-      value_to_return +=
-        link_to('Edit', edit_page_element_link_path(page_element_link), class: 'edit-page-element')
-    end
+    return value_to_return.html_safe unless user_signed_in?
+
+    value_to_return +=
+      link_to('Edit', edit_page_element_link_path(page_element_link), class: 'edit-page-element')
 
     value_to_return.html_safe
   end
@@ -92,10 +95,9 @@ module AdminHelper
     setting = Setting.find_by(key: key)
     value_to_return = setting.value
 
-    if user_signed_in?
-      value_to_return += link_to('Edit', edit_setting_path(setting), class: 'edit-page-element')
-    end
+    return value_to_return.html_safe unless user_signed_in?
 
-    value_to_return.html_safe
+    (value_to_return +=
+      link_to('Edit', edit_setting_path(setting), class: 'edit-page-element')).html_safe
   end
 end

@@ -43,6 +43,8 @@ module ApplicationHelper
   end
 
   def on_admin_page?
-    (controller.controller_name == 'settings')
+    controller.controller_name == 'settings' ||
+    (controller.controller_name == 'registrations' &&
+    controller.action_name == 'edit')
   end
 end
