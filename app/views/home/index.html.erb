@@ -9,8 +9,8 @@
       <div class="page-title-text">
         <div class="container">
           <h1>
-            <%= edit_text(@page, 'main_title_1', 'Electrics. Painting.', render_markdown: false) %><br>
-            <strong><%= edit_text(@page, 'main_title_2', 'Anything!', render_markdown: false) %></strong>
+            <%= edit_text('main_title_1', 'Electrics. Painting.', render_markdown: false) %><br>
+            <strong><%= edit_text('main_title_2', 'Anything!', render_markdown: false) %></strong>
           </h1>
         </div>
       </div>
@@ -70,16 +70,16 @@
               <ul class="page-title-bar-left">
                 <li>
                   <i class="fa fa-phone"></i>
-                  <strong><%= edit_text(@page, 'mobile_contact', 'France Mob: 0675 889731', render_markdown: false) %></strong>
+                  <strong><%= edit_text('mobile_contact', 'France Mob: 0675 889731', render_markdown: false) %></strong>
                 </li>
                 <li>
                   <i class="fa fa-envelope-o"></i>
-                  <strong><%= edit_link(@page, 'email_contact', 'd.suddick@sky.com', 'mailto:d.suddick@sky.com') %></strong>
+                  <strong><%= edit_link('email_contact', 'd.suddick@sky.com', 'mailto:d.suddick@sky.com') %></strong>
                 </li>
               </ul>
 
               <div class="page-title-bar-right">
-                <%= edit_link(@page, 'request_quote', 'Request a Quote', '/contact', class: 'c-button m-type-2 m-size-medium') %>
+                <%= edit_link('request_quote', 'Request a Quote', '/contact', class: 'c-button m-type-2 m-size-medium') %>
               </div>
 
             </div>
@@ -111,9 +111,9 @@
             <!-- FEATURE : begin -->
             <div class="c-feature">
               <i class="feature-icon fa fa-keyboard-o"></i>
-              <h3 class="feature-title"><%= edit_text(@page, 'focus_point_1_title', 'Certification') %></h3>
+              <h3 class="feature-title"><%= edit_text('focus_point_1_title', 'Certification') %></h3>
               <div class="feature-text">
-                <p><%= edit_text(@page, 'focus_point_1_body', 'Our handymen are certified and highly experienced professionals.') %></p>
+                <p><%= edit_text('focus_point_1_body', 'Our handymen are certified and highly experienced professionals.') %></p>
               </div>
             </div>
             <!-- FEATURE : end -->
@@ -126,9 +126,9 @@
             <!-- FEATURE : begin -->
             <div class="c-feature">
               <i class="feature-icon fa fa-clock-o"></i>
-              <h3 class="feature-title"><%= edit_text(@page, 'focus_point_2_title', 'Reliable Timing') %></h3>
+              <h3 class="feature-title"><%= edit_text('focus_point_2_title', 'Reliable Timing') %></h3>
               <div class="feature-text">
-                <p><%= edit_text(@page, 'focus_point_2_body', 'When I agree to do work I will agree on a time to arrive and stick to it.') %></p>
+                <p><%= edit_text('focus_point_2_body', 'When I agree to do work I will agree on a time to arrive and stick to it.') %></p>
               </div>
             </div>
             <!-- FEATURE : end -->
@@ -141,9 +141,9 @@
             <!-- FEATURE : begin -->
             <div class="c-feature">
               <i class="feature-icon fa fa-eur"></i>
-              <h3 class="feature-title"><%= edit_text(@page, 'focus_point_3_title', 'Fair Prices') %></h3>
+              <h3 class="feature-title"><%= edit_text('focus_point_3_title', 'Fair Prices') %></h3>
               <div class="feature-text">
-                <p><%= edit_text(@page, 'focus_point_3_body', 'I provide fair prices for all clients which are agreed before any work commences.') %></p>
+                <p><%= edit_text('focus_point_3_body', 'I provide fair prices for all clients which are agreed before any work commences.') %></p>
               </div>
             </div>
             <!-- FEATURE : end -->
@@ -161,15 +161,15 @@
     <div class="section-inner">
       <div class="container">
 
-        <h2><%= edit_text(@page, 'testimonial_title', 'Hear From Our <strong>Happy Clients</strong>') %></h2>
+        <h2><%= edit_text('testimonial_title', 'Hear From Our <strong>Happy Clients</strong>') %></h2>
         <div class="row">
           <div class="col-md-4">
 
             <!-- TESTIMONIAL : begin -->
             <div class="c-testimonial">
               <blockquote>
-                <p><%= edit_text(@page, 'testimonial_1', 'Reliable, fair price and turned up on time.') %></p>
-                <footer><cite><strong><%= edit_text(@page, 'testimonial_1_author', 'Elaine', p_tags: false) %></strong></cite></footer>
+                <p><%= edit_text('testimonial_1', 'Reliable, fair price and turned up on time.') %></p>
+                <footer><cite><strong><%= edit_text('testimonial_1_author', 'Elaine', p_tags: false) %></strong></cite></footer>
               </blockquote>
             </div>
             <!-- TESTIMONIAL : end -->
@@ -182,8 +182,8 @@
             <!-- TESTIMONIAL : begin -->
             <div class="c-testimonial">
               <blockquote>
-                <p><%= edit_text(@page, 'testimonial_2', 'Reliable, fair price and turned up on time.') %></p>
-                <footer><cite><strong><%= edit_text(@page, 'testimonial_2_author', 'Elaine', p_tags: false) %></strong></cite></footer>
+                <p><%= edit_text('testimonial_2', 'Reliable, fair price and turned up on time.') %></p>
+                <footer><cite><strong><%= edit_text('testimonial_2_author', 'Elaine', p_tags: false) %></strong></cite></footer>
               </blockquote>
             </div>
             <!-- TESTIMONIAL : end -->
@@ -196,8 +196,8 @@
             <!-- TESTIMONIAL : begin -->
             <div class="c-testimonial">
               <blockquote>
-                <p><%= edit_text(@page, 'testimonial_3', 'Reliable, fair price and turned up on time.') %></p>
-                <footer><cite><strong><%= edit_text(@page, 'testimonial_3_author', 'Elaine', p_tags: false) %></strong></cite></footer>
+                <p><%= edit_text('testimonial_3', 'Reliable, fair price and turned up on time.') %></p>
+                <footer><cite><strong><%= edit_text('testimonial_3_author', 'Elaine', p_tags: false) %></strong></cite></footer>
               </blockquote>
             </div>
             <!-- TESTIMONIAL : end -->

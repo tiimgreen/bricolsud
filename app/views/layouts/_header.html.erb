@@ -19,11 +19,11 @@
           <div class="brading-info">
             <% if user_signed_in? %>
               <strong><%= edit_setting('company_name') %></strong><br>
-              <em><%= edit_text(@page, 'global_company_tag_line', 'Anything for the House & Home') %></em>
+              <em><%= edit_text('global_company_tag_line', 'Anything for the House & Home') %></em>
             <% else %>
               <%= link_to root_path, class: 'logo-link' do %>
                 <strong><%= edit_setting('company_name') %></strong><br>
-                <em><%= edit_text(@page, 'global_company_tag_line', 'Anything for the House & Home') %></em>
+                <em><%= edit_text('global_company_tag_line', 'Anything for the House & Home') %></em>
               <% end %>
             <% end %>
           </div>

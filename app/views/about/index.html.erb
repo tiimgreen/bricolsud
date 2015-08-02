@@ -8,7 +8,7 @@
       <!-- PAGE TITLE TEXT : begin -->
       <div class="page-title-text">
         <div class="container">
-          <h1><%= edit_text(@page, 'page_title', 'About Us', p_tags: false) %></h1>
+          <h1><%= edit_text('page_title', 'About Us', p_tags: false) %></h1>
         </div>
       </div>
       <!-- PAGE TITLE TEXT : end -->
@@ -27,7 +27,7 @@
           <div class="page-title-breadcrumbs">
             <ul>
               <li><%= link_to t('general.home'), root_path %></li>
-              <li><%= edit_text(@page, 'page_title', 'About Us', p_tags: false) %></li>
+              <li><%= edit_text('page_title', 'About Us', p_tags: false) %></li>
             </ul>
           </div>
           <!-- PAGE TITLE BREADCRUMBS : end -->
@@ -46,8 +46,8 @@
   <!-- PAGE CONTENT : begin -->
   <div id="page-content">
 
-    <h2><%= edit_text(@page, 'page_header', '__25 Years of Experience__ in Home Maintenance', p_tags: false) %></h2>
-    <%= edit_text(@page, 'page_body') %>
+    <h2><%= edit_text('page_header', '__25 Years of Experience__ in Home Maintenance', p_tags: false) %></h2>
+    <%= edit_text('page_body') %>
 
     <hr class="c-divider m-size-small m-transparent">
 

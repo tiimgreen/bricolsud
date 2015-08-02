@@ -105,4 +105,12 @@ User.create(
   password_confirmation: 'password'
 )
 
-puts 'Admin user created'.green
+User.create(
+  first_name: 'Dave',
+  last_name: 'Suddick',
+  email: 'd.suddick@sky.com',
+  password: 'password',
+  password_confirmation: 'password'
+)
+
+puts 'Admin + Client user created'.green
