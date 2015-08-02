@@ -1,6 +1,9 @@
 module ApplicationHelper
   # Produces title for pages
-  def page_title(title, base = Setting.find_by(key: "company_name_#{I18n.locale}").value)
+  def page_title(
+    title,
+    base = Setting.find_by(key: "company_name_#{I18n.locale}").value
+  )
     (title.empty? ? base : "#{title} | #{base}").html_safe
   end
 
@@ -11,22 +14,27 @@ module ApplicationHelper
       gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
       url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
     else
-      url = "http://free-online-marketing-lessons.com/wp-content/uploads/2014/08/Gravatar-icon.png"
+      url = 'http://free-online-marketing-lessons.com/wp-content/uploads/2014/08/Gravatar-icon.png'
     end
 
-    class_names = ['gravatar ' + options[:class].to_s]
+    class_names = ['gravatar', options[:class].to_s]
 
-    options[:circle] ? class_names.push('img-circle') :
-                       class_names.push('img-rounded')
+    class_names.push(options[:circle] ? 'img-circle' : 'img-rounded')
 
-    image_tag(url, alt: user.name, class: class_names.join(' '), width: size, height: size)
+    image_tag(
+      url,
+      alt: user.name,
+      class: class_names.join(' '),
+      width: size,
+      height: size
+    )
   end
 
   # Short method for checking if on certain page
   def on_page(cont, act = '')
     if act.present?
       controller.controller_name == cont.downcase &&
-      controller.action_name == act.downcase
+        controller.action_name == act.downcase
     else
       controller.controller_name == cont.downcase
     end
@@ -36,7 +44,7 @@ module ApplicationHelper
   def controller_on_page(cont, act = '')
     if act.present?
       controller_name == cont.downcase &&
-      action_name == act.downcase
+        action_name == act.downcase
     else
       controller_name == cont.downcase
     end
@@ -44,7 +52,7 @@ module ApplicationHelper
 
   def on_admin_page?
     controller.controller_name == 'settings' ||
-    (controller.controller_name == 'registrations' &&
-    controller.action_name == 'edit')
+      (controller.controller_name == 'registrations' &&
+      controller.action_name == 'edit')
   end
 end
