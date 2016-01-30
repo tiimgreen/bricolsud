@@ -25,3 +25,53 @@ fr:
     errors:
       required: "S'il vous plaît remplir tous les champs obligatoire"
       connection: 'Il y avait un problème de connexion. Réessayez plus tard.'
+
+  activerecord:
+    errors:
+      models:
+        question:
+          attributes:
+            question_fr:
+              blank: 'is required.'
+            answer_fr:
+              blank: 'is required.'
+            question_en:
+              blank: 'is required.'
+            answer_en:
+              blank: 'is required.'
+    attributes:
+      question:
+        question_fr:
+          one:   Question (French)
+          other: Question (French)
+        question_en:
+          one:   Question (English)
+          other: Question (English)
+        answer_fr:
+          one:   Answer (French)
+          other: Answer (French)
+        answer_en:
+          one:   Answer (English)
+          other: Answer (English)
+
+  page_titles:
+    home:
+      index: 'Accueil'
+    about:
+      index: 'Sur'
+    contact:
+      index: 'Contactez'
+    page_element_links:
+      show: 'Lien'
+      edit: 'Éditer Lien'
+    page_element_texts:
+      show: 'Texte'
+      edit: 'Éditer Texte'
+    questions:
+      new: 'Neuf Question'
+      edit: 'Éditer Question'
+    services_images:
+      index: 'Service Images'
+      new: 'Neuf Service Image'
+    services:
+      edit: 'Éditer Service'

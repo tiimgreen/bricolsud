@@ -41,3 +41,25 @@ en:
         answer_en:
           one:   Answer (English)
           other: Answer (English)
+
+  page_titles:
+    home:
+      index: 'Home'
+    about:
+      index: 'About'
+    contact:
+      index: 'Contact'
+    page_element_links:
+      show: 'Link'
+      edit: 'Edit Link'
+    page_element_texts:
+      show: 'Text'
+      edit: 'Edit Text'
+    questions:
+      new: 'New Question'
+      edit: 'Edit Question'
+    services_images:
+      index: 'Service Images'
+      new: 'New Service Image'
+    services:
+      edit: 'Edit Service'
