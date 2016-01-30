@@ -111,9 +111,16 @@
             <!-- FEATURE : begin -->
             <div class="c-feature">
               <i class="feature-icon fa fa-keyboard-o"></i>
-              <h3 class="feature-title"><%= edit_text('focus_point_1_title', 'Certification') %></h3>
+              <h3 class="feature-title"><%= edit_text('focus_point_1_title', { en: 'Experienced', fr: 'Expérimenté' }) %></h3>
               <div class="feature-text">
-                <p><%= edit_text('focus_point_1_body', 'Our handymen are certified and highly experienced professionals.') %></p>
+                <p><%=
+                  edit_text(
+                    'focus_point_1_body',
+                    { en: 'I am a highly experienced professional.',
+                      fr: 'Je suis un professionnel hautement expérimenté.'
+                    }
+                  )
+                %></p>
               </div>
             </div>
             <!-- FEATURE : end -->
@@ -126,9 +133,16 @@
             <!-- FEATURE : begin -->
             <div class="c-feature">
               <i class="feature-icon fa fa-clock-o"></i>
-              <h3 class="feature-title"><%= edit_text('focus_point_2_title', 'Reliable Timing') %></h3>
+              <h3 class="feature-title"><%= edit_text('focus_point_2_title', { en:'Reliable Timing', fr: 'Calendrier fiable' }) %></h3>
               <div class="feature-text">
-                <p><%= edit_text('focus_point_2_body', 'When I agree to do work I will agree on a time to arrive and stick to it.') %></p>
+                <p><%=
+                  edit_text(
+                    'focus_point_2_body',
+                    { en: 'When I agree to do work I will agree on a time to arrive and stick to it.',
+                      fr: "Quand je suis d'accord pour faire le travail que je suis d'accord sur un temps d'arriver et de s'y tenir."
+                    }
+                  )
+                %></p>
               </div>
             </div>
             <!-- FEATURE : end -->
@@ -141,9 +155,16 @@
             <!-- FEATURE : begin -->
             <div class="c-feature">
               <i class="feature-icon fa fa-eur"></i>
-              <h3 class="feature-title"><%= edit_text('focus_point_3_title', 'Fair Prices') %></h3>
+              <h3 class="feature-title"><%= edit_text('focus_point_3_title', { en: 'Fair Prices', fr: 'Une tarification équitable' }) %></h3>
               <div class="feature-text">
-                <p><%= edit_text('focus_point_3_body', 'I provide fair prices for all clients which are agreed before any work commences.') %></p>
+                <p><%=
+                  edit_text(
+                    'focus_point_3_body',
+                    { en: 'I provide fair prices for all clients which are agreed before any work commences.',
+                      fr: 'Je fournis des prix équitables pour tous les clients qui sont convenus avant le début des travaux .'
+                    }
+                  )
+                %></p>
               </div>
             </div>
             <!-- FEATURE : end -->
@@ -161,14 +182,14 @@
     <div class="section-inner">
       <div class="container">
 
-        <h2><%= edit_text('testimonial_title', 'Hear From Our <strong>Happy Clients</strong>') %></h2>
+        <h2><%= edit_text('testimonial_title', { en: 'Hear From Our <strong>Happy Clients</strong>', fr: 'Entendre de nos clients heureux' }) %></h2>
         <div class="row">
           <div class="col-md-4">
 
             <!-- TESTIMONIAL : begin -->
             <div class="c-testimonial">
               <blockquote>
-                <p><%= edit_text('testimonial_1', 'Reliable, fair price and turned up on time.') %></p>
+                <p><%= edit_text('testimonial_1', { en: 'Reliable, fair price and turned up on time.', fr: 'Fiable, prix juste et tourné sur le temps.'}) %></p>
                 <footer><cite><strong><%= edit_text('testimonial_1_author', 'Elaine', p_tags: false) %></strong></cite></footer>
               </blockquote>
             </div>
@@ -182,7 +203,7 @@
             <!-- TESTIMONIAL : begin -->
             <div class="c-testimonial">
               <blockquote>
-                <p><%= edit_text('testimonial_2', 'Reliable, fair price and turned up on time.') %></p>
+                <p><%= edit_text('testimonial_2', { en: 'Reliable, fair price and turned up on time.', fr: 'Fiable, prix juste et tourné sur le temps.'}) %></p>
                 <footer><cite><strong><%= edit_text('testimonial_2_author', 'Elaine', p_tags: false) %></strong></cite></footer>
               </blockquote>
             </div>
@@ -196,7 +217,7 @@
             <!-- TESTIMONIAL : begin -->
             <div class="c-testimonial">
               <blockquote>
-                <p><%= edit_text('testimonial_3', 'Reliable, fair price and turned up on time.') %></p>
+                <p><%= edit_text('testimonial_3', { en: 'Reliable, fair price and turned up on time.', fr: 'Fiable, prix juste et tourné sur le temps.'}) %></p>
                 <footer><cite><strong><%= edit_text('testimonial_3_author', 'Elaine', p_tags: false) %></strong></cite></footer>
               </blockquote>
             </div>

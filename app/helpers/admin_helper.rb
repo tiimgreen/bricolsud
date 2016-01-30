@@ -22,14 +22,18 @@ module AdminHelper
                                        autolink: true,
                                        space_after_headers: true,
                                        prettify: true)
-    uses_markdown = !options.key?(:render_markdown) || options[:render_markdown]
-    uses_p_tags = options.key?(:p_tags) && options[:p_tags]
+    uses_markdown = options.key?(:render_markdown) ? options[:render_markdown] : true
+    uses_p_tags = options.key?(:p_tags) ? options[:p_tags] : false
 
-    if (page_element = PageElementText.where(key: key, web_page_id: page_id)).any?
-      display_text = page_element.value
-    end
+    page_element =
+      PageElementText.create_with(
+        value: display_text
+      ).find_or_create_by(
+        key: key,
+        web_page_id: page_id
+      )
 
-    value_to_return = display_text
+    value_to_return = page_element.value
 
     if user_signed_in?
       value_to_return +=

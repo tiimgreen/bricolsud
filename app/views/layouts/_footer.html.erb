@@ -7,8 +7,8 @@
       <!-- CTA MESSAGE : begin -->
       <div class="c-cta-message m-has-button">
         <div class="cta-inner">
-          <h2><strong><%= edit_text('global_footer_top_title', 'Interested?') %></strong></h2>
-          <p><%= edit_text('global_footer_top_body', 'Get in touch and I\'ll get back to you with a quote.') %></p>
+          <h2><strong><%= edit_text('global_footer_top_title', { en: 'Interested?', fr: 'Intéressé?' }) %></strong></h2>
+          <p><%= edit_text('global_footer_top_body', { en: "Get in touch and I'll get back to you with a quote.", fr: "Entrer en contact et je vais revenir à vous avec un devis."}) %></p>
           <p class="cta-button">
             <%= edit_link('global_footer_get_in_touch', 'Get in Touch', '/contact', class: 'c-button m-size-medium') %>
           </p>
@@ -34,7 +34,7 @@
           <!-- TEXT WIDGET : begin -->
           <div class="widget text-widget">
             <div class="widget-inner">
-              <h3 class="widget-title"><%= edit_text('global_footer_about_title', 'About **Bricolsud**') %></h3>
+              <h3 class="widget-title"><%= edit_text('global_footer_about_title', { en: 'About **Bricolsud**', fr: 'Sur **Bricolsud**' }) %></h3>
               <div class="widget-content">
 
                 <p>
@@ -56,12 +56,12 @@ If there are any other handy-man jobs you need doing around the house, [get in t
           <!-- TEXT WIDGET (CONTACT) : begin -->
           <div class="widget text-widget">
             <div class="widget-inner">
-              <h3 class="widget-title"><%= edit_text('global_footer_contact_title', 'Quick <strong>Contact</strong>') %></h3>
+              <h3 class="widget-title"><%= edit_text('global_footer_contact_title', { en: 'Quick **Contact**', fr: 'Contact **rapide**' }) %></h3>
               <div class="widget-content">
                 <p><%= edit_text('global_footer_contact_body', 'Please call **0675 889731** or write at **[d.suddick@sky.com](mailto:d.suddick@sky.com)**.
 
-**Le Perier**
-Echourgnac
+**Le Perier**<br>
+Echourgnac<br>
 France') %></p>
               </div>
             </div>

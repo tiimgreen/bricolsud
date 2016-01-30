@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :null_session
 
   before_action :choose_lang, :set_title, :set_page
 
@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
       redirect_to new_user_session_url(subdomain: '')
     end
 
-    @choose_lang = !cookies[:preferred_language].present?
+    @choose_lang = !cookies[:preferred_language].present? && controller_on_page('home', 'index')
 
     I18n.locale = request.subdomain == '' ? :fr : request.subdomain
     I18n.locale = :en if controller_on_page('sessions', 'new')
@@ -21,19 +21,7 @@ class ApplicationController < ActionController::Base
 
   def set_title
     unless action_name.to_s.downcase == 'destroy'
-
-      case params[:action]
-      when 'index'
-        @page_title = controller_name.titleize
-      when 'show'
-        @page_title = controller_name.singularize.titleize
-      when 'new', 'create'
-        @page_title = "New #{controller_name.singularize.titleize}"
-      when 'edit', 'update'
-        @page_title = "Edit #{controller_name.singularize.titleize}"
-      else
-        @page_title = action_name.titleize
-      end
+      @page_title = t("page_titles.#{controller_name}.#{action_name}", default: '')
     end
   end
 
