@@ -10,7 +10,7 @@
           <h2><strong><%= edit_text('global_footer_top_title', { en: 'Interested?', fr: 'Intéressé?' }) %></strong></h2>
           <p><%= edit_text('global_footer_top_body', { en: "Get in touch and I'll get back to you with a quote.", fr: "Entrer en contact et je vais revenir à vous avec un devis."}) %></p>
           <p class="cta-button">
-            <%= edit_link('global_footer_get_in_touch', 'Get in Touch', '/contact', class: 'c-button m-size-medium') %>
+            <%= edit_link('global_footer_get_in_touch', { fr: 'Entrer en contact', en: 'Get in Touch' }, '/contact', class: 'c-button m-size-medium') %>
           </p>
         </div>
       </div>
@@ -37,12 +37,20 @@
               <h3 class="widget-title"><%= edit_text('global_footer_about_title', { en: 'About **Bricolsud**', fr: 'Sur **Bricolsud**' }) %></h3>
               <div class="widget-content">
 
-                <p>
-                  <%= edit_text('global_footer_about_body', 'I can provide a wide range of services including, but not limited to, **[Plumbing](/services/7-plumbing)**, **[Heating](/services/2-heating)**, **[Electrical Work](/services/1-electrics)**, **[Gardening](/services/5-gardening)**, **[Property
+                <p><%=
+                  edit_text(
+                    'global_footer_about_body',
+                    {
+                      en: 'I can provide a wide range of services including, but not limited to, **[Plumbing](/services/7-plumbing)**, **[Heating](/services/2-heating)**, **[Electrical Work](/services/1-electrics)**, **[Gardening](/services/5-gardening)**, **[Property
                      Maintenence](/services/6-property-maintenence)**, **[Windows and Shutters](/services/3-windows-and-shutters)**, **[Decorating](/services/4-decorating)** and **[General DIY](/services/8-diy)**.
 
-If there are any other handy-man jobs you need doing around the house, [get in touch](/contact) and I\'ll let you know ASAP if I am available.') %>
-                </p>
+If there are any other handy-man jobs you need doing around the house, [get in touch](/contact) and I\'ll let you know ASAP if I am available.',
+                      fr: "Je peux vous fournir une large gamme de services, y compris, mais sans s'y limiter, **[de plomberie](/services/7-plomberie)**, **[chauffage](/services/2-chauffage)**, **[électrique](/services/1-electrique)**, **[jardinage](/services/5-jardinage)**, **[maintenance de propriété](/services/6-maintenance-de-propriete)**, **[fenêtres et volets](/services/3-fenetres-et-volets)**, **[décoration](/services/4-decoration)** et **[bricolage général](/services/8-bricolage-general)**.
+
+Si il ya d'autres emplois à portée de main - homme dont vous avez besoin font autour de la maison, [entrer en contact](/contact) et je vous le ferai savoir dès que possible si je suis disponible."
+                    }
+                  )
+                %></p>
               </div>
             </div>
           </div>
@@ -92,7 +100,7 @@ France') %></p>
 
         <!-- FOOTER TEXT : begin -->
         <div class="footer-text">
-          <%= edit_text('global_footer_copyright', 'Copyright 2015 &copy; Bricolsud | SIRE Number: 123 456 789') %>
+          <%= edit_text('global_footer_copyright', { en: 'Copyright 2016 &copy; Bricolsud | SIRET Number: 123 456 789', fr: "Droit d'auteur &copy; Bricolsud 2016 | Nombre SIRET: 123 456 789" }) %>
         </div>
         <!-- FOOTER TEXT : end -->
 

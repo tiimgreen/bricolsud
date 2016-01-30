@@ -75,3 +75,9 @@ fr:
       new: 'Neuf Service Image'
     services:
       edit: 'Éditer Service'
+    settings:
+      index: 'Paramètres'
+    sessions:
+      new: "S'identifier"
+    registrations:
+      edit: "Modifier l'utilisateur"

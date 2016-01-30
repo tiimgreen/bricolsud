@@ -8,7 +8,7 @@
       <!-- PAGE TITLE TEXT : begin -->
       <div class="page-title-text">
         <div class="container">
-          <h1><%= edit_text('page_title', 'Contact', p_tags: false) %></h1>
+          <h1><%= edit_text('page_title', { en: 'Contact', fr: 'Contactez' }, p_tags: false) %></h1>
         </div>
       </div>
       <!-- PAGE TITLE TEXT : end -->
@@ -27,7 +27,7 @@
           <div class="page-title-breadcrumbs">
             <ul>
               <li><%= link_to t('general.home'), root_path %></li>
-              <li><%= edit_text('page_title', { en: 'Contact', fr: 'Contactez' }, p_tags: false) %></li>
+              <li><%= read_text('page_title', { en: 'Contact', fr: 'Contactez' }) %></li>
             </ul>
           </div>
           <!-- PAGE TITLE BREADCRUMBS : end -->
@@ -52,8 +52,8 @@
         <!-- ICON BLOCK : begin -->
         <div class="c-icon-block">
           <i class="im im-compass"></i>
-          <h3><%= edit_text('location_title', 'Location', render_markdown: false) %></h3>
-          <%= edit_text('location_body', 'Le Perier<br>Echourgnac') %>
+          <h3><%= edit_text('location_title', { en: 'Location', fr: 'Emplacement' }, render_markdown: false) %></h3>
+          <%= edit_text('location_body', 'Le Périer<br>Échourgnac') %>
         </div>
         <!-- ICON BLOCK : end -->
 
@@ -62,10 +62,19 @@
         <!-- ICON BLOCK : begin -->
         <div class="c-icon-block">
           <i class="im im-compass"></i>
-          <h3><%= edit_text('operating_area_title', 'Operating Area', render_markdown: false) %></h3>
-          <%= edit_text('operating_area_body', 'I operate in __and around__ the areas of:
+          <h3><%= edit_text('operating_area_title', { en: 'Operating Area', fr: "Zone d'exploitation" }, render_markdown: false) %></h3>
+          <%=
+            edit_text(
+              'operating_area_body',
+              { en: 'I operate in __and around__ the areas of:
 
-__Chalias/Brossac__, __Riberac__, and __Montpon__.') %>
+__Chalias/Brossac__, __Riberac__, and __Montpon__.',
+                fr: "Je exploiter __dans et autour__ des zones de:
+
+__Chalias/Brossac, __Montpon__ et __Riberac__."
+              }
+            )
+          %>
           </p>
         </div>
         <!-- ICON BLOCK : end -->
@@ -75,7 +84,7 @@ __Chalias/Brossac__, __Riberac__, and __Montpon__.') %>
         <!-- ICON BLOCK : begin -->
         <div class="c-icon-block">
           <i class="im im-phone"></i>
-          <h3><%= edit_text('free_quote_title', 'Free Quote', render_markdown: false) %></h3>
+          <h3><%= edit_text('free_quote_title', { en: 'Free Quote', fr: 'Devis Gratuit' }, render_markdown: false) %></h3>
           <%= edit_text('free_quote_body', '0675 889731
 
 [d.suddick@sky.com](mailto:d.suddick@sky.com)') %>
@@ -93,7 +102,7 @@ __Chalias/Brossac__, __Riberac__, and __Montpon__.') %>
 
     <hr class="c-divider m-size-medium">
 
-    <h2><%= edit_text('contact_form_title', 'Get More Info or __Request a Quote__') %></h2>
+    <h2><%= edit_text('contact_form_title', { en: 'Get More Info or __Request a Quote__', fr: "Obtenir plus d'informations ou __Demander un Devis__" }) %></h2>
 
     <!-- CONTACT FORM : begin -->
     <%= form_for submit_contact_form_path, html: { class: 'default-form m-ajax-form', id: 'contact-form' } do %>

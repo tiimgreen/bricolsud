@@ -70,7 +70,7 @@
               <ul class="page-title-bar-left">
                 <li>
                   <i class="fa fa-phone"></i>
-                  <strong><%= edit_text('mobile_contact', 'France Mob: 0675 889731', render_markdown: false) %></strong>
+                  <strong><%= edit_text('mobile_contact', { en: 'France Mob: 0675 889731', fr: '0675 889731' }, render_markdown: false) %></strong>
                 </li>
                 <li>
                   <i class="fa fa-envelope-o"></i>
@@ -79,7 +79,7 @@
               </ul>
 
               <div class="page-title-bar-right">
-                <%= edit_link('request_quote', 'Request a Quote', '/contact', class: 'c-button m-type-2 m-size-medium') %>
+                <%= edit_link('request_quote', { en: 'Request a Quote', fr: 'Demander une citation' }, '/contact', class: 'c-button m-type-2 m-size-medium') %>
               </div>
 
             </div>

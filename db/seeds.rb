@@ -89,9 +89,9 @@ Service.create(
 
 Service.create(
   title_en: 'General DIY',
-  title_fr: 'DIY général',
+  title_fr: 'Bricolage général',
   body_en: 'General DIY Body',
-  body_fr: 'DIY général body',
+  body_fr: 'Bricolage général body',
   order: 8
 )
 
@@ -113,4 +113,4 @@ User.create(
   password_confirmation: 'password'
 )
 
-puts 'Admin + Client user created'.green
+puts 'Admin (Tim) & Client (Dave) user created'.green

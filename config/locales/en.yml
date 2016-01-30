@@ -63,3 +63,9 @@ en:
       new: 'New Service Image'
     services:
       edit: 'Edit Service'
+    settings:
+      index: 'Settings'
+    sessions:
+      new: 'Sign In'
+    registrations:
+      edit: 'Edit User'
