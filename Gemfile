@@ -21,3 +21,7 @@ group :development, :test do
   gem 'spring'
 end
 
+group :production do
+  gem 'unicorn', '~> 5.0', '>= 5.0.1'
+end
+
