@@ -79,4 +79,6 @@ Rails.application.configure do
 
   # Set domain name
   # config.action_mailer.default_url_options = { host: 'localhost' }
+
+  config.x.domains = ['bricolsud.fr', 'en.bricolsud.fr']
 end

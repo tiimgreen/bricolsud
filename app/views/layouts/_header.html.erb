@@ -46,20 +46,20 @@
             <ul>
               <li>
                 <%
-                  en_class = 'nav-flag-link'
-                  en_class += ' active' if I18n.locale == :en
+                  fr_class = 'nav-flag-link'
+                  fr_class += ' active' if I18n.locale == :fr
                 %>
-                <%= link_to root_url(subdomain: :en), class: en_class do %>
-                  <%= image_tag 'uk.png', alt: 'UK', class: 'nav-flag' %>
+                <%= link_to fr_locale_redirect_path, class: fr_class do %>
+                  <%= image_tag 'france.png', alt: 'France', class: 'nav-flag' %>
                 <% end %>
               </li>
               <li>
                 <%
-                  fr_class = 'nav-flag-link'
-                  fr_class += ' active' if I18n.locale == :fr
+                  en_class = 'nav-flag-link'
+                  en_class += ' active' if I18n.locale == :en
                 %>
-                <%= link_to root_url(subdomain: :fr), class: fr_class do %>
-                  <%= image_tag 'france.png', alt: 'France', class: 'nav-flag' %>
+                <%= link_to en_locale_redirect_path, class: en_class do %>
+                  <%= image_tag 'uk.png', alt: 'UK', class: 'nav-flag' %>
                 <% end %>
               </li>
               <li><%= link_to t('nav.home'), root_path %></li>

@@ -13,13 +13,10 @@ class ApplicationController < ActionController::Base
       redirect_to new_user_session_url(subdomain: '')
     end
 
-    @choose_lang = request.subdomain == '' && controller_on_page('home', 'index')
+    @choose_lang = !cookies[:preferred_language].present?
 
-    if controller_on_page('sessions', 'new') || request.subdomain == ''
-      I18n.locale = :en
-    else
-      I18n.locale = request.subdomain
-    end
+    I18n.locale = request.subdomain == '' ? :fr : request.subdomain
+    I18n.locale = :en if controller_on_page('sessions', 'new')
   end
 
   def set_title
