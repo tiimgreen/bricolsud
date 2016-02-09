@@ -78,7 +78,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Set domain name
-  # config.action_mailer.default_url_options = { host: 'localhost' }
+  config.action_mailer.default_url_options = { host: 'bricolsud.fr' }
 
   config.x.domains = ['bricolsud.fr', 'en.bricolsud.fr']
 end
