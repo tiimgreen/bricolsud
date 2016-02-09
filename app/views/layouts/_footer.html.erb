@@ -66,11 +66,20 @@ Si il ya d'autres emplois à portée de main - homme dont vous avez besoin font 
             <div class="widget-inner">
               <h3 class="widget-title"><%= edit_text('global_footer_contact_title', { en: 'Quick **Contact**', fr: 'Contact **rapide**' }) %></h3>
               <div class="widget-content">
-                <p><%= edit_text('global_footer_contact_body', 'Please call **0675 889731** or write at **[d.suddick@sky.com](mailto:d.suddick@sky.com)**.
+                <p><%= edit_text('global_footer_contact_body',
+                    { en: 'Please call **0675 889731** or write at **[d.suddick@sky.com](mailto:d.suddick@sky.com)**.
 
 **Le Perier**<br>
 Echourgnac<br>
-France') %></p>
+France',
+
+                      fr: "S'il vous plaît appelez **0675 889731** ou écrire à **[d.suddick@sky.com](mailto:d.suddick@sky.com)**.
+
+**Le Perier**<br>
+Echourgnac<br>
+France"})
+                  %>
+                </p>
               </div>
             </div>
           </div>
