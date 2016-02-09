@@ -28,6 +28,10 @@ en:
 
   activerecord:
     attributes:
+      service_image:
+        alt_text:
+          one:   Caption
+          other: Caption
       question:
         question_fr:
           one:   Question (French)
