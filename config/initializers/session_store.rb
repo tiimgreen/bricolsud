@@ -3,7 +3,7 @@
 ### Rename '_bricolsud_session' ###
 
 if Rails.env.production?
-  Appname::Application.config.session_store :cookie_store, :key => '_cookie_name', domain: :all
+  Rails.application.config.session_store :cookie_store, :key => '_cookie_name', domain: :all
 else
-  Appname::Application.config.session_store :cookie_store, :key => '_cookie_name', domain: '.local.dev'
+  Rails.application.config.session_store :cookie_store, :key => '_cookie_name', domain: '.local.dev'
 end
