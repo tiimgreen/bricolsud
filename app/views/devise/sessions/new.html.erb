@@ -14,6 +14,8 @@
           <%= f.label :remember_me %>
         <% end -%>
 
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
         <div class="center">
           <div class="actions">
             <%= f.submit 'Log in', class: 'btn btn-primary btn-submit' %>
