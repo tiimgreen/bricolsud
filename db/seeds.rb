@@ -22,6 +22,43 @@ Setting.create(
   value: 'd.suddick@sky.com'
 )
 
+# Meta info
+Setting.create(
+  key: 'meta_description_home_index_fr',
+  pretty_name: 'Meta Description - Home Page (French)',
+  value: "Nombre SIRET: 818178873RM24 - Je peux vous fournir une large gamme de services, y compris, mais sans s'y limiter, de plomberie, chauffage, électrique, jardinage, maintenance de propriété, fenêtres et volets, décoration et bricolage général."
+)
+
+Setting.create(
+  key: 'meta_description_home_index_en',
+  pretty_name: 'Meta Description - Home Page (English)',
+  value: "SIRET Number: 818178873RM24 - I can provide a wide range of services including, but not limited to, Plumbing, Heating, Electrical Work, Gardening, Property Maintenence, Windows and Shutters, Decorating and General DIY."
+)
+
+Setting.create(
+  key: 'meta_description_about_index_fr',
+  pretty_name: 'Meta Description - About Page (French)',
+  value: "25 ans d'expérience dans Entretien de la maison"
+)
+
+Setting.create(
+  key: 'meta_description_about_index_en',
+  pretty_name: 'Meta Description - About Page (English)',
+  value: "25 Years of Experience in Home Maintenance"
+)
+
+Setting.create(
+  key: 'meta_description_contact_index_fr',
+  pretty_name: 'Meta Description - Contact Page (French)',
+  value: "S'il vous plaît appelez 0675 889731 ou écrire à d.suddick@sky.com."
+)
+
+Setting.create(
+  key: 'meta_description_contact_index_en',
+  pretty_name: 'Meta Description - Contact Page (English)',
+  value: "Please call 0675 889731 or write at d.suddick@sky.com."
+)
+
 puts 'Settings created'.green
 
 Service.create(

@@ -123,4 +123,14 @@ module AdminHelper
       )
     ).html_safe
   end
+
+  def read_setting(key)
+    key += "_#{I18n.locale}" if Rails.configuration.i18n_used
+
+    if (setting = Setting.find_by(key: key))
+      setting.value
+    else
+      ''
+    end
+  end
 end
