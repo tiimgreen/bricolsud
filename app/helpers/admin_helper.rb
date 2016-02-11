@@ -46,7 +46,7 @@ module AdminHelper
 
     return value_to_return.html_safe unless uses_markdown
 
-    value_to_return.gsub!(/\r\n/, '<br>')
+    # value_to_return.gsub!(/\r\n/, '<br>')
     value_to_return = markdown.render(value_to_return).html_safe
 
     return value_to_return if uses_p_tags

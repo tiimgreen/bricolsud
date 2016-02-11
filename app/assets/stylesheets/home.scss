@@ -40,3 +40,24 @@
 
   color: red;
 }
+
+blockquote {
+  padding-left: 50px;
+  margin-bottom: 20px;
+  font-style: italic;
+  display: inline-block;
+  float: left;
+  width: 100%;
+
+  &:before {
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 30px;
+    display: inline-block;
+    margin-right: 10px;
+    float: left;
+    content: "\f10d";
+    color: #ffb617;
+  }
+}
