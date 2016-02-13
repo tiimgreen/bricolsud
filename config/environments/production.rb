@@ -81,4 +81,5 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'bricolsud.fr' }
 
   config.x.domains = ['bricolsud.fr', 'en.bricolsud.fr']
+  config.x.base_domain = 'bricolsud.fr'
 end

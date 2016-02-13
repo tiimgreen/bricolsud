@@ -5,12 +5,15 @@ class HomeController < ApplicationController
 
   def chose_en_locale
     set_cookie(:en)
-    redirect_to root_url(subdomain: :en)
+    base_url_index = request.referrer.index(Rails.configuration.x.base_domain)
+    new_path = request.referrer.insert(base_url_index, 'en.')
+    redirect_to new_path
   end
 
   def chose_fr_locale
     set_cookie(:fr)
-    redirect_to root_url(subdomain: '')
+    path = URI(request.referer).path.slice(1..-1)
+    redirect_to "#{root_url(subdomain: '')}#{path}"
   end
 
   private
