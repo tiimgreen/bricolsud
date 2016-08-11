@@ -34,6 +34,21 @@ $edit_button_colour: #9568E3;
         }
       }
     }
+
+    &.top-menu {
+
+    }
+
+    &.bottom-menu {
+      width: $sidebar_width;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+
+      li {
+        border-top: 1px solid #ddd;
+      }
+    }
   }
 }
 
@@ -55,7 +70,8 @@ body.admin-signed-in {
   width: calc(100% - 170px);
   width: -webkit-calc(100% - 170px);
   width: -moz-calc(100% - 170px);
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .edit-page-element {
@@ -82,6 +98,31 @@ body.admin-signed-in {
   margin-bottom: 30px;
   width: 100%;
   text-align: center;
+}
+
+#learn_markdown .modal-content {
+  height: 1600px;
+}
+
+.admin-page {
+  #body {
+    margin: 0;
+  }
+
+  .container {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+}
+
+.submit-group {
+  margin-top: 20px !important;
+}
+
+.background-image {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .serice-add-more {
